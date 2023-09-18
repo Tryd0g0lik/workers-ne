@@ -1,0 +1,12 @@
+*.config.js
+node_modules
+webpack.*.js
+src/index.js
+src/__tests__
+coverage
+dist
+websocket-polyfill.js
+setupTests.js
+caches
+src.v0
+main.js
