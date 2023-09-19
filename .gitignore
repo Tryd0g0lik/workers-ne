@@ -1,6 +1,7 @@
 node_modules
 dist
 pic
+!src/app/pic
 coverage
 caches
 src/__tests__
