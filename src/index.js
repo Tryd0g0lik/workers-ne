@@ -1,3 +1,3 @@
 import "./app/styles/style.scss";
-import "./app/ts/functions/index";
+import "./app/ts/main";
 
