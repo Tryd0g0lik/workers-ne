@@ -1,7 +1,7 @@
 {
   "name": "workers-ne",
   "version": "1.0.0",
-  "main": "src/index.js",
+	"main": "./src/index.js",
   "repository": "https://github.com/Tryd0g0lik/workers-ne.git",
   "author": "Tryd0g0lik",
   "license": "MIT",
@@ -60,8 +60,8 @@
   "description": "My webpack project",
   "scripts": {
     "lent": "eslint",
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
+		"build": "webpack --mode=production",
+		"build:dev": "webpack --config ./webpack.dev.js",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"

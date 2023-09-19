@@ -3,30 +3,19 @@ process.traceDeprecation = true;
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
-// const isProduction = process.env.NODE_ENV == 'production';
-
-
-// const stylesHandler = MiniCssExtractPlugin.loader;
-
-
 
 module.exports = {
 	mode: 'none',
 	entry: './src/index.js',
 		target: 'web',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+			path: path.resolve(__dirname, 'dist'),
 	},
 
-	// devServer: {
-	//     open: true,
-	//     host: 'localhost',
-	// },
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './src/app/index.html',
+			template: 'src/app/index.html',
 			minify: {
 				// exclude the minification
 				collapseWhitespace: false
@@ -75,18 +64,14 @@ module.exports = {
 			{
 				test: /\.s?[ac]ss$/i,
 				include: [
-					path.resolve(__dirname, './src/app/scss')
+					path.resolve(__dirname, './src/app/styles')
 				],
 				use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader", 'postcss-loader'],
 
 			},
 			{
 				test: /\.html$/i,
-				use: [
-					{
-						loader: 'html-loader',
-					},
-				],
+				loader: 'html-loader',
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -100,14 +85,3 @@ module.exports = {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
 	},
 };
-
-// module.exports = () => {
-//     if (isProduction) {
-//         config.mode = 'production';
-
-
-//     } else {
-//         config.mode = 'development';
-//     }
-//     return config;
-// };

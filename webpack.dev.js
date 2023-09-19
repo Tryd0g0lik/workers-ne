@@ -23,7 +23,6 @@ module.exports = merge(common, {
 		watchFiles: [
 			'./src/app/styles',
 			'./src/app/ts',
-			'./src/app/routers',
 			'./src/app/serve.ts'
 		],
 
@@ -37,7 +36,7 @@ module.exports = merge(common, {
 		// Only update what has changed on hot reload
 		new webpack.HotModuleReplacementPlugin(),
 		new ESLintPlugin({
-			files: path.join(__dirname, 'src/ts'),
+			files: path.join(__dirname, 'src/app/ts'),
 		})
 	]
 });
