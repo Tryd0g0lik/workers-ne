@@ -3,25 +3,11 @@
  * разместить новости на гланой
  *
 */
+const { publicNews } = require('./functions/index');
+const { LoadPage } = require('./functions/serverEvent');
 
-function LoadPage() {
-	const { WSocket } = require('./modules/websockets');
-	let ws: any;
-	console.log('Start!')
-	if (!ws
-		|| (ws
-			&& (ws.readyState < 1 || ws.readyState > 1))) {
-		ws = new WSocket("ws://localhost:7070");
-		console.log('WSOCKET: making a connection');
-	}
-	let news = JSON.stringify({ news: [] });
-	console.log('NEWS MOCK: making a mock', news)
-	ws.sends(news);
-	console.log('SEND MOCK!');
-	ws.onOpen();
-	console.log('OPEN')
+document.addEventListener('DOMContentLoaded', () => {
 
-	console.log('/*------------------\\')
-}
-document.addEventListener('DOMContentLoaded', () => LoadPage());
+	LoadPage(publicNews);
+});
 
