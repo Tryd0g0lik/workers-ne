@@ -28,7 +28,7 @@ export class WSocket {
 			console.log('WS closed Event: ', e['message']);
 
 		});
-		this.socket.addEventListener('error', (e: any) => { });
+		this.socket.addEventListener('error', (e: any) => { this.onError(e) });
 
 		this.handlers = {
 			open: [],
@@ -36,8 +36,13 @@ export class WSocket {
 			data: []
 		};
 	}
-
+	/**
+	 * Getin datas for to sends.
+	 * @param datas:string Ti's JSON.stryngify(data);
+	 */
 	sends(datas: string) { this.handlers.data.push(datas) };
+
+
 	onOpen() {
 		let data: string = '';
 		if (this.handlers.data.length > 0) {
