@@ -73,7 +73,7 @@
     "serve-test": "webpack serve --port=9000 ",
     "watch": "webpack --watch",
     "serve": "webpack serve",
-    "start:backend": "nodemon  --watch ./ --ignore dist  ./src/app/serve.ts"
+    "serve:backend": "nodemon  --watch ./ --ignore dist  ./src/app/serve.ts"
   },
   "dependencies": {
     "@koa/cors": "^4.0.0",

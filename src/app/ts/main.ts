@@ -1,5 +1,7 @@
-// const { scraper } = require('../parser');
-// const https = require('https');
-// const http = require('http');
-// const puppeteer = require('puppeteer');
+/** Из файла псевдо db - news.json прочитать данные
+ * Отправить на главну
+ * разместить новости на гланой
+ *
+*/
+
 
