@@ -8,7 +8,7 @@ const webpack = require('webpack');
 module.exports = {
 	mode: 'none',
 	entry: './src/index.js',
-		target: 'web',
+	target: 'web',
     output: {
 			path: path.resolve(__dirname, 'dist'),
 	},
@@ -84,5 +84,4 @@ module.exports = {
 	resolve: {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
 	},
-
 };

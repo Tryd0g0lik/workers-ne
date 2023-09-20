@@ -18,8 +18,5 @@ module.exports = {
 		"error",
 		"windows"
 	],
-	"parser": ["babel-eslint", '@typescript-eslint/parser'],
-	"plugins": [
-		'import',
-	]
+	"parser": ["babel-eslint", '@typescript-eslint/parser']
 }

@@ -1,4 +1,4 @@
-// const jest = require('./jest.config');
+const jest = require('./jest.config');
 
 module.exports = (jest, {
 	// A preset that is used as a base for Jest's configuration
@@ -9,6 +9,7 @@ module.exports = (jest, {
 	//Задает файлы, которые должны быть выполнены перед запуском тестов, например, для настройки окружения.
 	setupFiles: ['./websocket-polyfill.js'],
 	testMatch: [
+		"src/app/parser/index.js"
 		// "**/__e2e__/(*.)+(test).[jt]s",
 		// "!**__unit__/EventsAutorization.test.js",
 		// "!**__unit__/zero.test.js"
@@ -24,7 +25,7 @@ module.exports = (jest, {
 	},
 	// вид страницы
 	viewport: {
-		heught: 800,
+		heught: 1000,
 		width: 1200,
 	}
 });
