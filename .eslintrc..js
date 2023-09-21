@@ -13,6 +13,9 @@ module.exports = {
         "ecmaVersion": "latest"
     },
     "rules": {
+			"dot-location": ["error", "property"],
+			"func-call-spacing": ["error", "never"],
+			'indent': ["error", "tab"]
 	},
 	"linebreak-style": [
 		"error",

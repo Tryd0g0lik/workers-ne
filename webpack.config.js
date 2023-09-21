@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: 'none',
@@ -31,11 +30,7 @@ module.exports = {
 			filename: '[file].map.[query]',
 			exclude: path.join(__dirname, 'src/app'),
 		}),
-		// new CopyPlugin({
-		// 	patterns: [
-		// 		{ from: 'src/app/pic/*.png', to: 'pic/', },
-		// 	],
-		// }),
+
 		// new OptimizeCssAssetsPlugin()
 
 		// Add your plugins here

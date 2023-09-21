@@ -31,5 +31,4 @@ export function publicNews(news: string) {
 
 		(newsBox as HTMLElement).insertAdjacentHTML('beforeend', (tenpleteNews as any))
 	}
-
 }
