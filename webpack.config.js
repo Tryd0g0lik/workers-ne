@@ -15,7 +15,7 @@ module.exports = {
 	entry: './src/index.ts',
 	mode: "none",
 	// output: {
-	// 	path: path.resolve(__dirname, 'dist'),
+	// 	path: path.join(__dirname, 'dist'),
 	// },
 	node: process.env.NODE_ENV,
 	devServer: {
@@ -41,13 +41,14 @@ module.exports = {
 				loader: 'ts-loader',
 				// exclude: ['/node_modules/']
 				include: [
-					path.resolve(__dirname, 'src')
+					path.join(__dirname, 'src')
 				]
 			},
 			{
 				test: /\.s?[ac]ss$/i,
 				include: [
-					path.resolve(__dirname, './src/app/scss')
+					// path.join(__dirname, './src/app/scss')
+					path.join(__dirname, 'src/styles')
 				],
 				use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader", 'postcss-loader']
 
@@ -69,7 +70,7 @@ module.exports = {
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
 	},
-	resolve: {
+	join: {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
 	},
 };
