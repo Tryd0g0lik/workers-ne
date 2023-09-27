@@ -20,8 +20,22 @@ module.exports = {
 	// },
 	node: process.env.NODE_ENV,
 	devServer: {
+		static: {
+			directory: path.resolve(__dirname, 'dist'),
+			staticOptions: {
+				redirect: true,
+			},
+		},
+		watchFiles: [
+			'./src/app/styles',
+			'./src/app/ts',
+			'./src/app/serve.ts'
+		],
+
+		compress: true,
+		historyApiFallback: true,
 		open: true,
-		host: 'localhost',
+		port: 8080
 	},
 	plugins: [
 		// new HtmlWebpackPlugin({
@@ -68,6 +82,7 @@ module.exports = {
 						plugins: [
 							'@babel/plugin-proposal-class-properties',
 						],
+						configFile: "../../../.babelrc"
 					}
 				}],
 

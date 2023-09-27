@@ -1,0 +1,97 @@
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** css ../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!../../../node_modules/postcss-loader/dist/cjs.js!./src/styles/style.scss ***!
+  \*******************************************************************************************************************************************************************************/
+main {
+  width: 416px;
+  margin: 0 auto;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 17px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header div:first-of-type {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.header div:last-of-type {
+  width: 2fr;
+}
+
+.news-feed {
+  padding-top: 19px;
+}
+
+.news {
+  padding-top: 15px;
+}
+.news:first-of-type {
+  padding-top: 0;
+}
+
+.data-news,
+.new-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+.data-news div:last-of-type p,
+.new-content div:last-of-type p {
+  display: inline;
+  text-indent: 0;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.data-news {
+  padding-top: 0px;
+}
+.data-news div {
+  font-size: 1rem;
+}
+.data-news div:last-of-type {
+  padding-left: 5px;
+}
+
+.new-content {
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-top: 13px;
+}
+.new-content div:last-of-type {
+  padding-left: 22px;
+}
+.new-content .new-content-preview {
+  width: 46px;
+  height: 46px;
+}
