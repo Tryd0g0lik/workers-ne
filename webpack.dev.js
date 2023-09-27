@@ -13,24 +13,7 @@ module.exports = merge(common, {
 	// devtool: 'source-map', //or 'source-map',//'cheap-module-source-map'
 
 	// Spin up a server for quick development
-	devServer: {
-		static: {
-			directory: path.resolve(__dirname, 'dist'),
-			staticOptions: {
-				redirect: true,
-			},
-		},
-		// watchFiles: [
-		// 	'./src/app/styles',
-		// 	'./src/app/ts',
-		// 	'./src/app/serve.ts'
-		// ],
 
-		compess: true,
-		historyApiFallback: true,
-		open: true,
-		port: 'auto'
-	},
 
 	plugins: [
 		// Only update what has changed on hot reload

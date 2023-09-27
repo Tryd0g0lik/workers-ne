@@ -11,7 +11,7 @@ module.exports = [
 		entry: './src/app/frontend/webpack.config.js',
 		output: {
 			filename: 'frontend.js',
-			path: path.resolve(__dirname, 'dist')
+			path: path.resolve(__dirname, '../../../dist')
 		},
 		target: 'web'
 		// Дополнительные настройки для config1
@@ -21,34 +21,23 @@ module.exports = [
 		entry: './src/app/backend/webpack.dev.js',
 		output: {
 			filename: 'backend.js',
-			path: path.resolve(__dirname, 'dist'),
-			libraryTarget: "commonjs"
+			path: path.resolve(__dirname, '../../../dist'),
+			libraryTarget: "commonjs2"
 		},
-		target: 'node18.17'
+		target: 'node'
 		// Дополнительные настройки для config2
 	},
 	{
 		mode: 'none',
 		entry: './src/index.js',
-		target: ['web', 'node18.17'],
-		//
-		output: {
-			path: path.resolve(__dirname, 'dist'),
-			chunkFormat: 'commonjs',
-		},
+		// target: ['web', 'node'],
+		// //
+		// output: {
+		// 	path: path.resolve(__dirname, '../../../dist'),
+		// 	chunkFormat: 'commonjs',
+		// },
 
 		plugins: [
-			// new HtmlWebpackPlugin({
-			// 	template: 'src/app/index.html',
-			// 	minify: {
-			// 		// exclude the minification
-			// 		collapseWhitespace: false
-			// 	}
-			// }),
-
-			// new MiniCssExtractPlugin({
-			// 	filename: '[name].css',
-			// }),
 
 			new webpack.SourceMapDevToolPlugin({
 				filename: '[file].map.[query]',
@@ -62,34 +51,27 @@ module.exports = [
 		],
 		module: {
 			rules: [
-				{
-					test: /\.(ts|tsx)$/i,
-		// попробовать добавить ЭRule.excludeЭ
-		// exclude: [
-		// 	"**/node_modules",
+				// {
+				// 	test: /\.(ts|tsx)$/i,
+				// 	loader: 'ts-loader',
+				// 	include: [
+				// 		path.resolve(__dirname, 'src/app/frontend/src/ts'),
+				// 		path.resolve(__dirname, 'src/app/backend/src')
+				// 	]
 
-					// ],
-					loader: 'ts-loader',
-					include: [
-						path.resolve(__dirname, 'src/app/frontend/src/ts'),
-						path.resolve(__dirname, 'src/app/backend/src')
-					]
-
-				},
+				// },
 				{
 					test: /\.js$/i,
-					// exclude: /node_modules/,
 					include: [
 						path.resolve(__dirname, 'src/app/frontend/src/ts'),
 						path.resolve(__dirname, 'src/app/backend/src')
 					],
-					use: [{
-						loader: 'babel-loader',
-						options: {
-
-							configFile: "./babelrc"
-						}
-					}]
+					// 	use: [{
+					// 		loader: 'babel-loader',
+					// 		options: {
+					// 			configFile: "./babelrc"
+					// 		}
+					// 	}]
 
 				}
 				// {
