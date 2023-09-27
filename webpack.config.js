@@ -12,8 +12,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
-	entry: './src/index.ts',
+	entry: './src/index.js',
 	mode: "none",
+
 	// output: {
 	// 	path: path.join(__dirname, 'dist'),
 	// },
@@ -26,9 +27,17 @@ module.exports = {
 		// new HtmlWebpackPlugin({
 		// 	template: 'index.html',
 		// }),
+		new HtmlWebpackPlugin({
+			template: '../index.html',
+			minify: {
+				// exclude the minification
+				collapseWhitespace: false
+			}
+		}),
+
 
 		new MiniCssExtractPlugin({
-			filename: '[name].css',
+			filename: '[name].css'
 		}),
 
 		// Add your plugins here
@@ -41,38 +50,55 @@ module.exports = {
 				loader: 'ts-loader',
 				// exclude: ['/node_modules/']
 				include: [
-					path.join(__dirname, 'src')
+					path.join(__dirname, 'src/ts')
 				]
+			},
+			{
+				test: /\.js$/i,
+				// exclude: /node_modules/,
+				include: [
+					path.resolve(__dirname, 'src')
+				],
+				use: [{
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							['@babel/preset-env', { targets: "defaults" }]
+						],
+						plugins: [
+							'@babel/plugin-proposal-class-properties',
+						],
+					}
+				}],
+
 			},
 			{
 				test: /\.s?[ac]ss$/i,
 				include: [
-					// path.join(__dirname, './src/app/scss')
-					path.join(__dirname, 'src/styles')
+					path.resolve(__dirname, './src/styles/style.scss')
 				],
 				use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader", 'postcss-loader']
 
 			},
-			// {
-			// 	test: /\.s[ac]ss$/i,
-			// 	use: [stylesHandler, 'css-loader', 'postcss-loader', 'sass-loader'],
-			// },
-			// {
-			// 	test: /\.css$/i,
-			// 	use: [stylesHandler, 'css-loader', 'postcss-loader'],
-			// },
+			{
+				test: /\.html$/i,
+				loader: 'html-loader'
+			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
-			},
+				type: 'asset/resource',
+				generator: {
+					filename: 'pic/[name][ext]'
+				}
+			}
 
 			// Add your rules for custom modules here
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
-	},
-	join: {
-		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
-	},
+	}
+	// join: {
+	// 	extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+	// },
 };
 
 // module.exports = () => {

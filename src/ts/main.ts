@@ -1,8 +1,8 @@
 /** Создать эмулятор ошибки на сервере
  *
 */
-const { publicNews } = require('./functions/index');
-const { LoadPage } = require('./functions/serverEvent');
+const { publicNews } = require('./functions/index.ts');
+const { LoadPage } = require('./functions/serverEvent/index.ts');
 
 document.addEventListener('DOMContentLoaded', () => {
 	if ("serviceWorker" in navigator) {
