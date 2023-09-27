@@ -1,7 +1,10 @@
-node_modules
-dist
+
+**/node_modules
+
+**/dist
 pic
-!src/app/pic
+
+!src/app/frontend/pic
 coverage
 caches
 src/__tests__

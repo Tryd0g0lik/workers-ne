@@ -40,7 +40,7 @@ Jest поставляется с двумя поставщиками покры�
 
 	collectCoverageFrom: [
 		"**/ts/*.{js,jsx,ts}",
-		"src/app/ts/*.{js,ts}",
+		"./src/app/ts/*.{js,ts}",
 		// '!**/node_modules/**',
 		// '!**/vendor/**',
 		// '!./*.(ts)|(js)',

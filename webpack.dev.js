@@ -8,23 +8,23 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = merge(common, {
 	// Set the mode to development or production
-	mode: 'development',
+	mode: process.env.NODE_ENV,
 	// Control how source maps are generated
 	// devtool: 'source-map', //or 'source-map',//'cheap-module-source-map'
 
 	// Spin up a server for quick development
 	devServer: {
 		static: {
-			directory: path.join(__dirname, 'dist'),
+			directory: path.resolve(__dirname, 'dist'),
 			staticOptions: {
 				redirect: true,
 			},
 		},
-		watchFiles: [
-			'./src/app/styles',
-			'./src/app/ts',
-			'./src/app/serve.ts'
-		],
+		// watchFiles: [
+		// 	'./src/app/styles',
+		// 	'./src/app/ts',
+		// 	'./src/app/serve.ts'
+		// ],
 
 		compess: true,
 		historyApiFallback: true,
@@ -36,7 +36,11 @@ module.exports = merge(common, {
 		// Only update what has changed on hot reload
 		new webpack.HotModuleReplacementPlugin(),
 		new ESLintPlugin({
-			files: path.join(__dirname, 'src/app/ts'),
+			files: [
+				path.resolve(__dirname, 'src/app/backend/src'),
+				path.resolve(__dirname, 'src/app/frontend/src/ts')
+
+			]
 		})
 	]
 });

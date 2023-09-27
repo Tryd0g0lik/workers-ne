@@ -1,23 +1,27 @@
 {
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"noImplicitAny": true,
 		"module": "ES6",
 		"target": "ES2021",
-		"allowJs": true,
 		"sourceMap": true,
+		"allowJs": false,
+		"rootDirs": [
+			"./src/app/backend/src",
+			"./src/app/frontend/src/ts"
+		],
 		"outDir": "./dist",
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"noImplicitAny": true,
 		"skipLibCheck": true,
 		"strict": true
-		
+
 	},
 	"exclude": [
 		"node_modules",
 		"directory",
 	],
 
-  "files": ["./src/index.js"]
+	"files": [
+		"./src/index.js"
+	]
 }
