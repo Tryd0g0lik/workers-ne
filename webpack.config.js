@@ -3,7 +3,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const webpack = require('webpack');
 // const isProduction = process.env.NODE_ENV == 'production';
 
 
@@ -14,18 +14,18 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
 	entry: './src/index.js',
 	mode: "none",
-
-	// output: {
-	// 	path: path.join(__dirname, 'dist'),
-	// },
+	output: {
+		filename: 'backend.js',
+		path: path.resolve(__dirname, '../../../dist'),
+		libraryTarget: "commonjs2"
+	},
 	node: process.env.NODE_ENV,
 	devServer: {
 		static: {
-			directory: path.resolve(__dirname, 'dist'),
-			staticOptions: {
-				redirect: true,
-			},
+			directory: path.resolve(__dirname, '../../../dist'),
+
 		},
+
 		watchFiles: [
 			'./src/app/styles',
 			'./src/app/ts',
@@ -48,7 +48,10 @@ module.exports = {
 				collapseWhitespace: false
 			}
 		}),
-
+		new webpack.SourceMapDevToolPlugin({
+			filename: '[file].map.[query]',
+			exclude: path.resolve(__dirname, 'src/app'),
+		}),
 
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
