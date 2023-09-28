@@ -2,6 +2,7 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackTagsPlugin = require("html-webpack-include-assets-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 // const isProduction = process.env.NODE_ENV == 'production';
@@ -14,10 +15,11 @@ const webpack = require('webpack');
 module.exports = {
 	entry: './src/index.js',
 	mode: "none",
+	target: 'web',
 	output: {
-		filename: 'backend.js',
+		filename: 'frontend.js',
 		path: path.resolve(__dirname, '../../../dist'),
-		libraryTarget: "commonjs2"
+		libraryTarget: "commonjs"
 	},
 	node: process.env.NODE_ENV,
 	devServer: {
@@ -38,9 +40,6 @@ module.exports = {
 		port: 8080
 	},
 	plugins: [
-		// new HtmlWebpackPlugin({
-		// 	template: 'index.html',
-		// }),
 		new HtmlWebpackPlugin({
 			template: '../index.html',
 			minify: {
@@ -48,6 +47,14 @@ module.exports = {
 				collapseWhitespace: false
 			}
 		}),
+
+		// new HtmlWebpackTagsPlugin({
+		// append: true,
+		// jsExtensions: ['.js'],
+		// cssExtensions: ['.css'],
+		// 	tags: ['frontend.js', 'main.css'],
+		// }),
+
 		new webpack.SourceMapDevToolPlugin({
 			filename: '[file].map.[query]',
 			exclude: path.resolve(__dirname, 'src/app'),
@@ -113,10 +120,10 @@ module.exports = {
 			// Add your rules for custom modules here
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
-	}
-	// join: {
-	// 	extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
-	// },
+	},
+	resolve: {
+		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+	},
 };
 
 // module.exports = () => {
