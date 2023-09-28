@@ -1,0 +1,14 @@
+{
+  "name": "workers-ne-serwiceWorker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tryd0g0lik",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
