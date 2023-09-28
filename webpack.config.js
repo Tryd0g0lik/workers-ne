@@ -9,6 +9,26 @@ module.exports = {
 	mode: "none",
 
 	target: 'node',
+	output: {
+		filename: 'frontend.js',
+		path: path.resolve(__dirname, '../../../dist')
+	},
+	devServer: {
+		host: 'localhost',
+		static: {
+			directory: path.resolve(__dirname, '../../../dist'),
+
+		},
+
+		watchFiles: [
+			"./src/serve.ts"
+		],
+
+		compress: true,
+		historyApiFallback: true,
+
+
+	},
 	// output: {
 
 	// 	path: path.resolve(__dirname, 'dist'),
@@ -63,7 +83,8 @@ module.exports = {
 			// Add your rules for custom modules here
 			// Learn more about loaders from https://webpack.js.org/loaders/
 
-		]
+		],
+		exprContextCritical: false
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
