@@ -2,15 +2,8 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackTagsPlugin = require("html-webpack-include-assets-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-// const isProduction = process.env.NODE_ENV == 'production';
-
-
-// const stylesHandler = MiniCssExtractPlugin.loader;
-
-
 
 module.exports = {
 	entry: './src/index.js',
@@ -48,13 +41,6 @@ module.exports = {
 			}
 		}),
 
-		// new HtmlWebpackTagsPlugin({
-		// append: true,
-		// jsExtensions: ['.js'],
-		// cssExtensions: ['.css'],
-		// 	tags: ['frontend.js', 'main.css'],
-		// }),
-
 		new webpack.SourceMapDevToolPlugin({
 			filename: '[file].map.[query]',
 			exclude: path.resolve(__dirname, 'src/app'),
@@ -72,14 +58,12 @@ module.exports = {
 			{
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
-				// exclude: ['/node_modules/']
 				include: [
 					path.join(__dirname, 'src/ts')
 				]
 			},
 			{
 				test: /\.js$/i,
-				// exclude: /node_modules/,
 				include: [
 					path.resolve(__dirname, 'src')
 				],
@@ -129,6 +113,7 @@ module.exports = {
 // module.exports = () => {
 //     if (isProduction) {
 //         config.mode = 'production';
+
 
 
 //     } else {
