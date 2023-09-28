@@ -64,8 +64,7 @@
 		"serve-test": "webpack serve --port=9000 ",
 		"watch": "webpack --watch",
 		"serve:front": "cd src/app/frontend && webpack serve --port=8080",
-		"serve:back": "yarn tsc src\\app\\backend\\src\\serve.ts && node src\\app\\backend\\src\\serve.js",
-		"serve:backend": "nodemon  --watch ./ --ignore dist  ./src/app/serve.ts"
+		"serve:back": "yarn tsc src\\app\\backend\\src\\serve.ts && node src\\app\\backend\\src\\serve.js"
 	},
 	"files": [
 		"dist",

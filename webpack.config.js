@@ -1,21 +1,16 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 process.traceDeprecation = true;
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
 
 module.exports = [
 	{
 		name: 'webpack_frontend',
 		entry: './src/app/frontend/webpack.config.js',
-
-
 		// Дополнительные настройки для config1
 	},
 	{
 		name: 'webpack_backend',
 		entry: './src/app/backend/webpack.dev.js',
-
 		// Дополнительные настройки для config2
 	},
 	{
@@ -23,14 +18,6 @@ module.exports = [
 		entry: './src/index.js',
 
 		plugins: [
-
-			// new webpack.SourceMapDevToolPlugin({
-			// 	filename: '[file].map.[query]',
-			// 	exclude: path.resolve(__dirname, 'src/app'),
-			// })
-
-			// new OptimizeCssAssetsPlugin()
-
 			// Add your plugins here
 			// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 		],
