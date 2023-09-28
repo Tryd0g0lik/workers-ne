@@ -1,9 +1,7 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require('path');
-// const webpack = require('webpack');
 
-// const isProduction = process.env.NODE_ENV == 'production';
 module.exports = {
 	entry: './src/index.js',
 	mode: "none",
@@ -13,27 +11,7 @@ module.exports = {
 		filename: 'backend.js',
 		path: path.resolve(__dirname, '../../../dist')
 	},
-	devServer: {
-		host: 'localhost',
-		static: {
-			directory: path.resolve(__dirname, '../../../dist/backend.js'),
 
-		},
-
-		watchFiles: [
-			"./src/serve.ts"
-		],
-
-		compress: true,
-		historyApiFallback: true,
-
-
-	},
-	// output: {
-
-	// 	path: path.resolve(__dirname, 'dist'),
-	// 	chunkFormat: 'module',
-	// },
 	// plugins: [
 	// new webpack.SourceMapDevToolPlugin({
 	// 	filename: '[file].map.[query]',
@@ -49,7 +27,6 @@ module.exports = {
 			{
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
-				// exclude: ['node_modules', "dist"],
 				include: [
 					path.resolve(__dirname, "src")
 				],
@@ -59,7 +36,6 @@ module.exports = {
 			},
 			{
 				test: /\.js$/i,
-				// exclude: /node_modules/,
 				include: [
 					path.resolve(__dirname, 'src')
 				],
@@ -93,14 +69,7 @@ module.exports = {
 	},
 }
 
-// module.exports = () => {
-// 	if (isProduction) {
-// 		config.mode = 'production';
+// module.exports = () => {}
+// 'production';
+// 'development';
 
-
-// 	} else {
-// 		config.mode = 'development';
-
-// 	}
-// 	return config;
-// };
