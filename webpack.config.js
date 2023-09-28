@@ -9,40 +9,27 @@ module.exports = [
 	{
 		name: 'webpack_frontend',
 		entry: './src/app/frontend/webpack.config.js',
-		output: {
-			filename: 'frontend.js',
-			path: path.resolve(__dirname, '../../../dist')
-		},
+
 		target: 'web'
 		// Дополнительные настройки для config1
 	},
 	{
 		name: 'webpack_backend',
 		entry: './src/app/backend/webpack.dev.js',
-		output: {
-			filename: 'backend.js',
-			path: path.resolve(__dirname, '../../../dist'),
-			libraryTarget: "commonjs2"
-		},
+
 		target: 'node'
 		// Дополнительные настройки для config2
 	},
 	{
 		mode: 'none',
 		entry: './src/index.js',
-		// target: ['web', 'node'],
-		// //
-		// output: {
-		// 	path: path.resolve(__dirname, '../../../dist'),
-		// 	chunkFormat: 'commonjs',
-		// },
 
 		plugins: [
 
-			new webpack.SourceMapDevToolPlugin({
-				filename: '[file].map.[query]',
-				exclude: path.resolve(__dirname, 'src/app'),
-			})
+			// new webpack.SourceMapDevToolPlugin({
+			// 	filename: '[file].map.[query]',
+			// 	exclude: path.resolve(__dirname, 'src/app'),
+			// })
 
 			// new OptimizeCssAssetsPlugin()
 
@@ -51,48 +38,15 @@ module.exports = [
 		],
 		module: {
 			rules: [
-				// {
-				// 	test: /\.(ts|tsx)$/i,
-				// 	loader: 'ts-loader',
-				// 	include: [
-				// 		path.resolve(__dirname, 'src/app/frontend/src/ts'),
-				// 		path.resolve(__dirname, 'src/app/backend/src')
-				// 	]
 
-				// },
 				{
 					test: /\.js$/i,
 					include: [
 						path.resolve(__dirname, 'src/app/frontend/src/ts'),
 						path.resolve(__dirname, 'src/app/backend/src')
-					],
-					// 	use: [{
-					// 		loader: 'babel-loader',
-					// 		options: {
-					// 			configFile: "./babelrc"
-					// 		}
-					// 	}]
-
+					]
 				}
-				// {
-				// 	test: /\.s?[ac]ss$/i,
-				// 	include: [
-				// 		path.resolve(__dirname, 'src/app/frontend/src/styles/style.scss')
-				// 	],
-				// 	use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader", 'postcss-loader']
 
-				// },
-				// {
-				// 	test: /\.html$/i,
-				// 	loader: 'html-loader'
-				// },
-				// {
-				// 	test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				// 	type: 'asset/resource',
-				// 	generator: {
-				// 		filename: 'pic/[name][ext]'
-				// 	}
-				// }
 				// Add your rules for custom modules here
 				// Learn more about loaders from https://webpack.js.org/loaders/
 			]

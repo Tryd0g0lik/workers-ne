@@ -62,8 +62,8 @@
 		"e2e": "jest --env=jest-environment-jsdom  --watch --colors --config=./puppeteer.config.js ",
 		"serve-test": "webpack serve --port=9000 ",
 		"watch": "webpack --watch",
-		"serve:front": "cd src/app/frontend && webpack serve --watch --port=8080",
-		"serve:back": "cd src/app/backend && webpack serve --watch --port=7070",
+		"serve:front": "cd src/app/frontend && webpack serve --port=8080",
+		"serve:back": "cd src/app/backend && webpack serve --port=7070",
 		"serve:backend": "nodemon  --watch ./ --ignore dist  ./src/app/serve.ts"
 	},
 	"files": [
