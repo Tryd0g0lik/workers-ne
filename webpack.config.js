@@ -1,7 +1,6 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 process.traceDeprecation = true;
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
@@ -10,14 +9,13 @@ module.exports = [
 		name: 'webpack_frontend',
 		entry: './src/app/frontend/webpack.config.js',
 
-		target: 'web'
+
 		// Дополнительные настройки для config1
 	},
 	{
 		name: 'webpack_backend',
 		entry: './src/app/backend/webpack.dev.js',
 
-		target: 'node'
 		// Дополнительные настройки для config2
 	},
 	{
