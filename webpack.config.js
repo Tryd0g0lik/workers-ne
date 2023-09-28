@@ -10,13 +10,13 @@ module.exports = {
 
 	target: 'node',
 	output: {
-		filename: 'frontend.js',
+		filename: 'backend.js',
 		path: path.resolve(__dirname, '../../../dist')
 	},
 	devServer: {
 		host: 'localhost',
 		static: {
-			directory: path.resolve(__dirname, '../../../dist'),
+			directory: path.resolve(__dirname, '../../../dist/backend.js'),
 
 		},
 
@@ -44,6 +44,8 @@ module.exports = {
 	// ]
 	module: {
 		rules: [
+
+
 			{
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
