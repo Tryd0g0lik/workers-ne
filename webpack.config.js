@@ -10,9 +10,9 @@ module.exports = {
 	mode: process.nextTick.MODE_ENV === 'production',
 	target: 'web',
 	output: {
-		filename: 'serwiceWorker.js',
-		path: path.resolve(__dirname, '../../../dist'),
-		libraryTarget: "commonjs"
+		filename: 'index.js',
+		path: path.resolve(__dirname, '../../../dist/serwiceWorker'),
+		libraryTarget: 'global'
 	},
 	plugins: [
 		new webpack.SourceMapDevToolPlugin({
