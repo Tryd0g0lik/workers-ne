@@ -10,8 +10,8 @@ module.exports = {
 	mode: process.nextTick.MODE_ENV === 'production',
 	target: 'web',
 	output: {
-		filename: 'index.js',
-		path: path.resolve(__dirname, '../../../dist/serwiceWorker'),
+		filename: 'serwiceWorker.js',
+		path: path.resolve(__dirname, '../../../dist'),
 		libraryTarget: 'global'
 	},
 	plugins: [
