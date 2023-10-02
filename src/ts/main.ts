@@ -4,32 +4,34 @@
 const { publicNews } = require('./functions/index.ts');
 const { LoadPage } = require('./functions/serverEvent/index.ts');
 
+let observer: any;
+let sw = () => {
+	if ("serviceWorker" in navigator) {
+		// Регистрация service worker-а, расположенного в корне сайта
+		// за счёт использования дефолтного scope (не указывая его)
+		console.log('SERVICEwORKER: stepped the CHECK!')
+		navigator.serviceWorker
+			.register("./serwiceWorker.js")
+			.then((registration) => {
+
+				console.log("Service worker зарегистрирован:", registration);
+			})
+			.catch((error) => {
+				console.log("Ошибка при регистрации service worker-а:", error);
+			});
+
+		console.log('SERVICEwORKER: stepped the navigator!')
+
+	} else {
+		// Текущий браузер не поддерживает service worker-ы.
+		console.log("Текущий браузер не поддерживает service worker-ы");
+	}
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
-	// if ("serviceWorker" in navigator) {
-	// 	navigator.serviceWorker
-	// 		.register("/sw.js")
-	// 		.then(function (registration) {
-	// 			registration.addEventListener("updatefound", function () {
-	// 				// If updatefound is fired, it means that there's
-	// 				// a new service worker being installed.
-	// 				var installingWorker = registration.installing;
-	// 				console.log(
-	// 					"A new service worker is being installed:",
-	// 					installingWorker,
-	// 				);
-
-	// 				// You can listen for changes to the installing service worker's
-	// 				// state via installingWorker.onstatechange
-	// 			});
-	// 		})
-	// 		.catch(function (error) {
-	// 			console.log("Service worker registration failed:", error);
-	// 		});
-	// } else {
-	// 	console.log("Service workers are not supported.");
-	// }
-
 	LoadPage(publicNews);
+	// sw()
+})
 
-});
 

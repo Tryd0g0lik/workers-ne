@@ -1,5 +1,3 @@
-
-
 export function publicNews(news: string) {
 	const newsBox = document.querySelector('.news-feed');
 	// const newsBoxDateTimeHTML = newsBox[0].querySelector('.news-datetime');
@@ -31,4 +29,29 @@ export function publicNews(news: string) {
 
 		(newsBox as HTMLElement).insertAdjacentHTML('beforeend', (tenpleteNews as any))
 	}
+}
+
+export function corrective(fun: any) {
+	let quantity: number = 0;
+	let i: number = 0;
+	console.log('COUNTER start');
+
+	const counter = () => {
+
+		const news = document.getElementsByClassName('news') as HTMLCollectionOf<HTMLElement>;
+		const newNewsQuantity = news.length;
+		console.log('COUNTER news: ', newNewsQuantity)
+
+		if (newNewsQuantity > 0
+			&& newNewsQuantity === quantity) fun();
+
+		quantity = [newNewsQuantity].shift() as number;
+		let timerId = setTimeout(() => counter(), 1000);
+		if (i === 2) clearTimeout(timerId);
+		i++;
+		console.log('COUNTER i', i)
+	}
+
+
+	counter();
 }

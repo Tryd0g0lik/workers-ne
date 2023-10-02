@@ -24,7 +24,8 @@ module.exports = {
 		watchFiles: [
 			'./src/app/styles',
 			'./src/app/ts',
-			'./src/app/serve.ts'
+			'./src/app/serve.ts',
+			'./src/app/serwiceWorker.ts'
 		],
 
 		compress: true,
