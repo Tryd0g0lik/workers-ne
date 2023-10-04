@@ -1,31 +1,19 @@
-function collectorNewsArr(): any {
 
-	const newBox = document.getElementsByClassName('news');
-	if (newBox) {
-		return newBox as HTMLCollectionOf<HTMLElement>
-	}
-	return []
+function nowTime() {
+	let now = new Date();
+	return now;
 }
-
-
-
-self.addEventListener("install", (ev: any) => {
+self.addEventListener("install", async (ev: any) => {
 	// const { corrective } = require('../../frontend/src/ts/functions/index.ts');
-
 	console.log('Установлен!')
-	debugger;
-	// basicLengthNewsArr = collectorNewsArr().length
 	// https://developer.mozilla.org/ru/docs/Web/API/Service_Worker_API/Using_Service_Workers#установка_и_активация_заполнение_кеша
+
 	ev.waitUntil(
 		caches.open("my-first-cech")
-			.then((cache) => {
-
+			.then((cache: any) => {
 				return cache.addAll([
-					'./',
-					'./index.html',
 					'./main.css',
 					'./pic/bg_buggy.png'
-
 				])
 			})
 	);
@@ -34,6 +22,19 @@ self.addEventListener("install", (ev: any) => {
 
 self.addEventListener('activate', (ev: any) => {
 	console.log('Активирован!')
+	function func() {
+		// const delay = (ms: any) => new Promise((resolve: any) => setTimeout(resolve, ms));
+		// await delay(0);
+
+		return caches.open("my-second-cech")
+			.then((cache: any) => {
+				cache.addAll([
+					'./',
+					'./index.html'
+				])
+			})
+	}
+	ev.waitUntil(func())
 
 });
 
@@ -43,28 +44,39 @@ self.addEventListener('fetch', (ev: any) => {
 
 
 	// self.addEventListener('message')
+	console.log('EV : ', ev.request);
 	ev
 		.respondWith(caches.match(ev.request)
 			.then((response: any) => {
 				// смотрим в кеш Если там ни чего нет делаем запрос  на сервер
+				console.log('RESPONSEЖ ', response)
+				// response != undefined ? response :
+				const result = undefined ? response : fetch('http://localhost:8080/')
 
-				/**
-				 * Базовый код из лекции.
-				 * 'fetch(ev.request)' - отрпавляем по урлу запроса на СЕРВЕР.
-				 * Но, сервер у нас на ДРУГОМ ПОРТУ.
-				 */
-				return response
-					|| fetch(ev.request)
-						.then((response: any) => {
+				return result
 
-							return caches.open("my-first-cech").then((cahce: any) => {
-								cahce.put(ev.request, response.clone());
-								return response;
-							})
-						})
 			})
-		)
+			.then(async (response: any) => {
+				const timer = (ms: any) => new Promise((resolve: any) => setTimeout(resolve, ms));
+				await timer(20000);
 
+				console.log('RESPONSE.Text: ', response.text());
+				return caches.open("my-second-cech-new")
+					.then((cahce: any) => {
+
+						cahce.put(ev.request, response.text());
+						return response;
+					})
+			})
+	)
+})
+console.log('SELF SELF: ', self);
+self.addEventListener('message', (ev: any) => {
+	caches.open('my-second-cech-new')
+		.then((cache: any) => {
+			debugger;
+			cache.add('./', ev.data['page'].slice(0,))
+			return ev
+		})
 
 })
-console.log('SELF SELF: ', self)
