@@ -1,3 +1,5 @@
+
+
 export function publicNews(news: string) {
 	const newsBox = document.querySelector('.news-feed');
 	// const newsBoxDateTimeHTML = newsBox[0].querySelector('.news-datetime');
@@ -6,6 +8,8 @@ export function publicNews(news: string) {
 
 	const newsJson = JSON.parse(news);
 	console.log('NEWS before insert: ', newsJson);
+
+	cachingData(newsJson);
 
 	(newsBox as HTMLElement).innerHTML = '';
 	for (let i = 0; i < newsJson['gaz'].length; i++) {
@@ -30,6 +34,34 @@ export function publicNews(news: string) {
 		(newsBox as HTMLElement).insertAdjacentHTML('beforeend', (tenpleteNews as any))
 	}
 }
+
+const cachingData = async (datas: any) => {
+	console.log('/---------CACHE-data News-below-----------------/')
+	console.log('[CACHE-type News]: ', typeof datas, '[keys]:', Object.keys(datas));
+	if (!datas || typeof datas !== 'object') { return }
+	try {
+		const jsonString = JSON.stringify(datas);
+		const myOptions = {
+			status: 200,
+			url: './'
+		}
+		const response = new Response(jsonString, myOptions);
+		console.log('[CACHE-Response]:', response);
+		// debugger;
+		const request = new Request('http://localhost:8080/', { mode: 'same-origin' });
+		const cache = await caches.open('cache-news-v1');
+		await cache.add('./');
+		await cache.put(request, response)
+		console.log('[CACHE - True END]:', true);
+		console.log('/---------CACHE-data News-above-----------------/')
+		return true
+	} catch (err: any) {
+		console.log('[CACHE - Catch END]:', false, err);
+		console.log('/---------CACHE-data News-above-----------------/')
+		return false
+	}
+}
+
 
 export function corrective(fun: any) {
 	let quantity: number = 0;
