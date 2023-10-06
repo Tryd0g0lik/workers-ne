@@ -2,14 +2,16 @@
 
 export function publicNews(news: string) {
 	const newsBox = document.querySelector('.news-feed');
-	// const newsBoxDateTimeHTML = newsBox[0].querySelector('.news-datetime');
-	// const newsBoxDateHTML = newsBox[0].querySelector('.news-date');
-	// const
+
+
 
 	const newsJson = JSON.parse(news);
+	if (!newsJson || typeof newsJson !== 'object') { return }
 	console.log('NEWS before insert: ', newsJson);
 
+	/* ----------cahe---------- */
 	cachingData(newsJson);
+	/* -------------------- */
 
 	(newsBox as HTMLElement).innerHTML = '';
 	for (let i = 0; i < newsJson['gaz'].length; i++) {
@@ -18,7 +20,7 @@ export function publicNews(news: string) {
 		// debugger;
 		const tenpleteNews = `<div class="news">
 				<div class="data-news">
-					<div class="news-datetime">${oneNews[i]['time']}</div>
+					<div class="news-dateешьу">${oneNews[i]['time']}</div>
 					<div class="news-date">${oneNews[i]['date']}</div>
 				</div>
 				<div class="new-content">
@@ -37,21 +39,27 @@ export function publicNews(news: string) {
 
 const cachingData = async (datas: any) => {
 	console.log('/---------CACHE-data News-below-----------------/')
-	console.log('[CACHE-type News]: ', typeof datas, '[keys]:', Object.keys(datas));
-	if (!datas || typeof datas !== 'object') { return }
+	// console.log('[CACHE-type News]: ', typeof datas, '[keys]:', Object.keys(datas));
+
 	try {
 		const jsonString = JSON.stringify(datas);
+		// debugger;
 		const myOptions = {
 			status: 200,
-			url: './'
+			type: 'basic',
+			url: 'http://localhost:8080/'
 		}
 		const response = new Response(jsonString, myOptions);
-		console.log('[CACHE-Response]:', response);
+		// console.log('[CACHE-Response]:', response);
 		// debugger;
-		const request = new Request('http://localhost:8080/', { mode: 'same-origin' });
+		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
 		const cache = await caches.open('cache-news-v1');
-		await cache.add('./');
-		await cache.put(request, response)
+		// await cache.addAll([
+		// 	'./',
+		// 	'./indes.html'
+		// ])
+		await cache.add('./news');
+		await cache.put(request.url, response)
 		console.log('[CACHE - True END]:', true);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return true
@@ -60,30 +68,4 @@ const cachingData = async (datas: any) => {
 		console.log('/---------CACHE-data News-above-----------------/')
 		return false
 	}
-}
-
-
-export function corrective(fun: any) {
-	let quantity: number = 0;
-	let i: number = 0;
-	console.log('COUNTER start');
-
-	const counter = () => {
-
-		const news = document.getElementsByClassName('news') as HTMLCollectionOf<HTMLElement>;
-		const newNewsQuantity = news.length;
-		console.log('COUNTER news: ', newNewsQuantity)
-
-		if (newNewsQuantity > 0
-			&& newNewsQuantity === quantity) fun();
-
-		quantity = [newNewsQuantity].shift() as number;
-		let timerId = setTimeout(() => counter(), 1000);
-		if (i === 2) clearTimeout(timerId);
-		i++;
-		console.log('COUNTER i', i)
-	}
-
-
-	counter();
 }
