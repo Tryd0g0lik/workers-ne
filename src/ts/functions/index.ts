@@ -1,11 +1,7 @@
-
-
 export function publicNews(news: string) {
 	const newsBox = document.querySelector('.news-feed');
-
-
-
 	const newsJson = JSON.parse(news);
+
 	if (!newsJson || typeof newsJson !== 'object') { return }
 	console.log('NEWS before insert: ', newsJson);
 
@@ -16,8 +12,6 @@ export function publicNews(news: string) {
 	(newsBox as HTMLElement).innerHTML = '';
 	for (let i = 0; i < newsJson['gaz'].length; i++) {
 		const oneNews = newsJson['gaz'];
-		console.log('News: ', 1);
-		// debugger;
 		const tenpleteNews = `<div class="news">
 				<div class="data-news">
 					<div class="news-dateешьу">${oneNews[i]['time']}</div>
@@ -37,29 +31,28 @@ export function publicNews(news: string) {
 	}
 }
 
+/**
+ * Функция в которой принимаем данные.
+ * Данные поступают из сервера - "{'gaz':[...]}" - объект списка новостей.
+ *
+ * @param datas : type is 'object'|| JSON
+ * @returns true/false:  Если "true" - данные попали в кеш, иначе ошибка.
+ */
 const cachingData = async (datas: any) => {
 	console.log('/---------CACHE-data News-below-----------------/')
-	// console.log('[CACHE-type News]: ', typeof datas, '[keys]:', Object.keys(datas));
-
 	try {
 		const jsonString = JSON.stringify(datas);
-		// debugger;
 		const myOptions = {
 			status: 200,
 			type: 'basic',
 			url: 'http://localhost:8080/'
-		}
+		};
 		const response = new Response(jsonString, myOptions);
-		// console.log('[CACHE-Response]:', response);
-		// debugger;
 		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
 		const cache = await caches.open('cache-news-v1');
-		// await cache.addAll([
-		// 	'./',
-		// 	'./indes.html'
-		// ])
 		await cache.add('./news');
 		await cache.put(request.url, response)
+
 		console.log('[CACHE - True END]:', true);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return true
