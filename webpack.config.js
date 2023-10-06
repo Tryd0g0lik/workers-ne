@@ -14,6 +14,10 @@ module.exports = [
 		// Дополнительные настройки для config2
 	},
 	{
+		name: 'workers-ne-serwiceWorker',
+		entry: './src/app/serwiceWorker/webpack.config.js'
+	},
+	{
 		mode: 'none',
 		entry: './src/index.js',
 

@@ -13,15 +13,18 @@
 		"esModuleInterop": true,
 		"noImplicitAny": true,
 		"skipLibCheck": true,
-		"strict": true
+		"strict": true,
+		"strictPropertyInitialization": false, //https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#strict-class-initialization
 
 	},
 	"exclude": [
 		"node_modules",
 		"directory",
+		"dist"
 	],
 
 	"files": [
-		"./src/index.js"
+		"./src/index.js",
+		"./dist/frontend.js"
 	]
 }

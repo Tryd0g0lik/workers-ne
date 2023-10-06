@@ -57,13 +57,13 @@
 	"scripts": {
 		"lent": "eslint",
 		"build": "webpack --mode=development --config ./webpack.config.js ",
-		"build:dev": "cd src/app/backend && webpack --mode=development --config ./webpack.dev.js && cd ../frontend && webpack --mode=development --config ./webpack.config.js",
+		"build:dev": "cd ./src/app/serwiceWorker && webpack --mode=development --config ./webpack.config.js && cd ../backend && webpack --mode=development --config ./webpack.dev.js && cd ../frontend && webpack --mode=development --config ./webpack.config.js",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"unit": "jest --env=jsdom  --watch --colors --config=./unit.config.js",
 		"e2e": "jest --env=jest-environment-jsdom  --watch --colors --config=./puppeteer.config.js ",
 		"serve-test": "webpack serve --port=9000 ",
 		"watch": "webpack --watch",
-		"serve:front": "cd src/app/frontend && webpack serve --port=8080",
+		"serve:front": "yarn tsc src/app/serwiceWorker/src/index.ts && cd src/app/frontend && webpack serve --port=8080",
 		"serve:back": "yarn tsc src\\app\\backend\\src\\serve.ts && node src\\app\\backend\\src\\serve.js"
 	},
 	"files": [
