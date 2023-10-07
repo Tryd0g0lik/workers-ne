@@ -12,7 +12,7 @@ module.exports = {
 	output: {
 		filename: 'serwiceWorker.js',
 		path: path.resolve(__dirname, '../../../dist'),
-		libraryTarget: 'global'
+		// libraryTarget: 'global'
 	},
 	plugins: [
 		new webpack.SourceMapDevToolPlugin({
