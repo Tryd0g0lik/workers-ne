@@ -1,20 +1,21 @@
 {
-  "name": "workers-ne-serwiceWorker",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Tryd0g0lik",
-  "license": "MIT",
-  "private": false,
-  "devDependencies": {
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.2.2",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
-	},
-	"dependencies": {
-		"package.json": "^2.0.1"
-	},
-	"scripts": {
-		"build:dev": "webpack --mode=development --config ./webpack.config.js"
-	}
+ "name": "workers-ne-serwiceWorker",
+ "version": "1.0.0",
+ "main": "index.js",
+ "author": "Tryd0g0lik",
+ "license": "MIT",
+ "private": false,
+ "devDependencies": {
+  "ts-loader": "^9.4.4",
+  "tsc": "^2.0.4",
+  "typescript": "^5.2.2",
+  "webpack": "^5.88.2",
+  "webpack-cli": "^5.1.4"
+ },
+ "dependencies": {
+  "package.json": "^2.0.1"
+ },
+ "scripts": {
+  "build:dev": "webpack --mode=development --config ./webpack.config.js"
+ }
 }

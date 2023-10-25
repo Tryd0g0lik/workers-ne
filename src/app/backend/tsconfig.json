@@ -6,19 +6,20 @@
 		"module": "CommonJS",
 		// "target": "ES5",
 		// "sourceMap": true,
-		"outDir": "../../../dist",
-		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"noImplicitAny": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"strictNullChecks": true
+		// "outDir": "../../../dist",
+		// "allowSyntheticDefaultImports": true,
+		// "esModuleInterop": true,
+		// "noImplicitAny": true,
+		// "skipLibCheck": true,
+		// "strict": true,
+		"strictNullChecks": false
 	},
 	"exclude": [
 		"node_modules",
 		"directory",
+		"dist"
 	],
 	"files": [
-		"./src/index.js"
+		"./src/serve.ts"
 	]
 }
