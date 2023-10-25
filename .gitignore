@@ -12,3 +12,6 @@ archive
 src/__tests__
 src.v0/
 **/*.v*
+backend
+serwiceWorker
+frontend
