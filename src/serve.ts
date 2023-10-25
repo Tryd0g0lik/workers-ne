@@ -14,10 +14,20 @@ const db = require('./db/news.json');
 
 
 console.log('D_B: ', db['gaz'][10]);
+
 // try {
 wss.on('connection', (ws: any, req: any) => {
+	console.log('/*-----------------------------------------------*/')
+	console.log('[ws]: ', Object.keys(ws))
+	console.log('[red]: ', Object.keys(req))
+	console.log('[WSS]: ', Object.keys(wss))
+	console.log('/*------------------FINISHED--------------------*/')
 
 	console.log('WebSocket connection!', Array.from(wss.clients).length)
+	// req['statusCode'] = 500
+	// Выяснить как отправлять данный.Почему сейчас отправляю не через "req" Cмю Стр. 1738
+	// и
+	https://github.com/websockets/ws#external-https-server
 	console.log('WebSocket CODE', ws.readyState);
 	ws.on('open', () => console.log('WebSocket oppened!'));
 	try {
@@ -28,20 +38,25 @@ wss.on('connection', (ws: any, req: any) => {
 			const dbString = JSON.stringify(db);
 			console.log('make a db:string for a sending');
 
+
 			Array.from(wss.clients).forEach((client: any) => client.send(dbString));
+
 		});
 	} catch (e: any) { console.error('Error Server: ', e) }
 
-	ws.on('close', (e: any) => {
-		console.log('WebSocked was closed', e);
-	});
-
-
+	ws.on('close', (e: any) => console.log('WebSocked was closed', e));
 
 	ws.on('error', (err: any) => console.log('WebSocket return error: ', err));
 })
 // } catch (er: any) { console.error('Server CONNECTION - That a something a wrong!', er) }
 
+// app.use(async (ctx: any, next: any) => {
+// 	console.log('[MODULATOR]: it is a 500 model err');
+// 	ctx.statusCode = 500;
+// 	ctx.body = 'Internal Server Error';
+// 	await next();
+// });
+console.log('[server]: ', Object.keys(server))
 server.listen(7070, (e: any) => console.log('Server has been started. Listen post: 7070 '));
 
 // const { Server } = require('mock-socket')

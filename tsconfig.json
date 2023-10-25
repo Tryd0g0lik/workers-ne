@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"noImplicitAny": true,
-		"module": "ES6",
-		"target": "ES2021",
+		"module": "CommonJS",
+		"target": "ES5",
 		"sourceMap": true,
 		"outDir": "./dist",
 		"allowSyntheticDefaultImports": true,

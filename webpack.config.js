@@ -22,8 +22,6 @@ module.exports = {
 	// ]
 	module: {
 		rules: [
-
-
 			{
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
