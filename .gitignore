@@ -7,6 +7,8 @@ pic
 !src/app/frontend/pic
 coverage
 caches
+archive
+
 src/__tests__
 src.v0/
 **/*.v*
