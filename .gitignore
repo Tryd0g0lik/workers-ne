@@ -15,3 +15,4 @@ src.v0/
 backend
 serwiceWorker
 frontend
+git push -u origin main
