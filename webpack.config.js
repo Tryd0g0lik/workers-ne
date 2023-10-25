@@ -12,7 +12,8 @@ module.exports = {
 	output: {
 		filename: 'frontend.js',
 		path: path.resolve(__dirname, '../../../dist'),
-		libraryTarget: "commonjs"
+		// libraryTarget || output.library.type : "commonjs"
+
 	},
 	node: process.env.NODE_ENV,
 	devServer: {

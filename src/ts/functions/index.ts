@@ -33,9 +33,8 @@ export function publicNews(news: string) {
 
 /**
  * Функция в которой принимаем данные.
- * Данные поступают из сервера - "{'gaz':[...]}" - объект списка новостей.
  *
- * @param datas : type is 'object'|| JSON
+ * @param datas : type is 'object'|| JSON. Данные поступают из сервера - "{'gaz':[...]}" - объект списка новостей.
  * @returns true/false:  Если "true" - данные попали в кеш, иначе ошибка.
  */
 const cachingData = async (datas: any) => {
