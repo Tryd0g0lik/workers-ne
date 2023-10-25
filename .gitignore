@@ -1,18 +1,22 @@
 
 **/node_modules
-
+**/*.v*
 **/dist
-pic
 
-!src/app/frontend/pic
+pic
 coverage
 caches
 archive
-
-src/__tests__
-src.v0/
-**/*.v*
 backend
 serwiceWorker
 frontend
-git push -u origin main
+
+src/__tests__
+src.v0/
+
+
+!**/backend
+!**/serwiceWorker
+!**/frontend
+!src/app/frontend/pic
+

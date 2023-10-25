@@ -59,7 +59,7 @@
 		"lent": "eslint",
 		"build": "webpack --mode=development --config ./webpack.config.js ",
 		"build:dev2": "cd ./src/app/serwiceWorker && webpack --mode=development --config ./webpack.config.js && cd ../backend && webpack --mode=development --config ./webpack.dev.js && cd ../frontend && webpack --mode=development --config ./webpack.config.js",
-		"build:dev": "yarn workspace workers-ne-serwiceWorker run build:dev && yarn workspace my-webpack-frontend run build:dev && yarn workspace my-webpack-backend run build:dev",
+		"build:dev": "yarn workspaces run build:dev",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"unit": "jest --env=jsdom  --watch --colors --config=./unit.config.js",
 		"e2e": "jest --env=jest-environment-jsdom  --watch --colors --config=./puppeteer.config.js ",
