@@ -15,6 +15,7 @@
 	"devDependencies": {
 		"@webpack-cli/generators": "^3.0.7",
 		"bufferutil": "^4.0.7",
+		"copy-webpack-plugin": "^11.0.0",
 		"mock-socket": "^9.3.1",
 		"path": "^0.12.7",
 		"prettier": "^3.0.3",
@@ -29,7 +30,7 @@
 	"description": "My webpack project",
 	"scripts": {
 		"build": "webpack --mode=production --config ./webpack.config.js ",
-		"build:dev": "webpack --mode=development --config ./webpack.config.js",
+		"build:dev": "yarn tsc && webpack",
 		"build:prod": "webpack ",
 		"watch": "webpack --watch",
 		"serve": "webpack serve --port=7070"

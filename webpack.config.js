@@ -8,15 +8,11 @@ module.exports = [
 		entry: './src/app/frontend/webpack.config.js',
 		// Дополнительные настройки для config1
 	},
-	{
-		name: 'webpack_backend',
-		entry: './src/app/backend/webpack.dev.js',
-		// Дополнительные настройки для config2
-	},
-	{
-		name: 'workers-ne-serwiceWorker',
-		entry: './src/app/serwiceWorker/webpack.config.js'
-	},
+	// {
+	// 	name: 'webpack_backend',
+	// 	entry: './src/app/backend/webpack.config.js',
+	// 	// Дополнительные настройки для config2
+	// },
 	{
 		mode: 'none',
 		entry: './src/index.js',
