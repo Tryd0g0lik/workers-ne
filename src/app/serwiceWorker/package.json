@@ -10,5 +10,11 @@
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
-  }
+	},
+	"dependencies": {
+		"package.json": "^2.0.1"
+	},
+	"scripts": {
+		"build:dev": "webpack --mode=development --config ./webpack.config.js"
+	}
 }
