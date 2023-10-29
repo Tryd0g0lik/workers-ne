@@ -14,7 +14,7 @@ export function publicNews(news: string) {
 		const oneNews = newsJson['gaz'];
 		const tenpleteNews = `<div class="news">
 				<div class="data-news">
-					<div class="news-dateешьу">${oneNews[i]['time']}</div>
+					<div class="news-datetime">${oneNews[i]['time']}</div>
 					<div class="news-date">${oneNews[i]['date']}</div>
 				</div>
 				<div class="new-content">
