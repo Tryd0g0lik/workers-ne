@@ -48,7 +48,7 @@ const cachingData = async (datas: any) => {
 		};
 		const response = new Response(jsonString, myOptions);
 		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
-		const cache = await caches.open('cache-news-v1');
+		const cache = await caches.open('cache-news');
 		await cache.add('./news');
 		await cache.put(request.url, response)
 

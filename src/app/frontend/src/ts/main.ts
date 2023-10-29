@@ -5,7 +5,7 @@ const { publicNews } = require('./functions/index.ts');
 const { LoadPage } = require('./functions/serverEvent/index.ts');
 
 async function news() {
-	const cache = await caches.open('cache-news-v1')
+	const cache = await caches.open('cache-news')
 	const response = await cache.match('./news')
 	if (response) {
 		response.json().then(data => {

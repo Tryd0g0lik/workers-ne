@@ -1,20 +1,19 @@
 self.addEventListener('install', (ev: any) => {
 	function fun() {
-		caches.open('cache-page') // Создаём кеш с именем "cache-page"
+		caches.open('v1') // Создаём кеш с именем "cache-page"
 			.then((cache: any) => {
 				return cache.addAll([ // передаем те url которые хотим закешировать
 					'./',
-					'./index.html'
+					'./index.html',
+					'./main.css',
 				])
 			});
-		caches.open('cache-static') // Создаём кеш который меняется редко с именем "cache-page"
+		caches.open('v2') // Создаём кеш который меняется редко с именем "cache-page"
 			.then((cache: any) => {
-				return cache.addAll([
-					'./main.css',
-					'./frontend.js'
-				])
+				return cache.add('/frontend.js')
 			})
 	}
+
 	ev.waitUntil(
 		fun()
 	)
