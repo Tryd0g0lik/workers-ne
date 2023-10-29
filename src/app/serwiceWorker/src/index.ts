@@ -1,13 +1,13 @@
 self.addEventListener('install', (ev: any) => {
 	function fun() {
-		caches.open('cache-page')
+		caches.open('cache-page') // Создаём кеш с именем "cache-page"
 			.then((cache: any) => {
-				return cache.addAll([
+				return cache.addAll([ // передаем те url которые хотим закешировать
 					'./',
 					'./index.html'
 				])
 			});
-		caches.open('cache-static')
+		caches.open('cache-static') // Создаём кеш который меняется редко с именем "cache-page"
 			.then((cache: any) => {
 				return cache.addAll([
 					'./main.css',
@@ -23,11 +23,12 @@ self.addEventListener('install', (ev: any) => {
 self.addEventListener('activate', (ev: any) => { console.log('Activated') });
 
 self.addEventListener('fetch', (ev: any) => {
-	ev.respondWith(
+	ev.respondWith( // вытаскиваем кеш и пользуемся
 		caches.match(ev.request)
 			.then((response: any) => {
 				if (!response) return
-				return response
+				return response || fetch(ev.request)// тут пишем стратегию
+				/* В данном случае проверяем кеш "response". Если Там ни чего нет, то идем по url-у запроса */
 			})
 	)
 });

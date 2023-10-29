@@ -36,7 +36,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: './index.html',
+			template: 'src/index.html',
 			minify: {
 				// exclude the minification
 				collapseWhitespace: false
