@@ -2,6 +2,7 @@ const http = require('http');
 const Koa = require('koa');
 const logger = require('koa-logger');
 const { koaBody } = require('koa-body');
+const slow = require('koa-slow');
 // const Router = require('koa-better-router');
 
 const WS = require('ws');
@@ -56,6 +57,9 @@ wss.on('connection', (ws: any, req: any) => {
 // 	ctx.body = 'Internal Server Error';
 // 	await next();
 // });
+
+app.use(slow());
+
 console.log('[server]: ', Object.keys(server))
 server.listen(7070, (e: any) => console.log('Server has been started. Listen post: 7070 '));
 
