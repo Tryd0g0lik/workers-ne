@@ -1,20 +1,20 @@
 export function LoadPage(callback: any) {
 	const { WSocket } = require('../../modules/websockets/index.ts');
 	let ws: any;
-	console.log('Start!');
+	console.log('[server-event: It is a LoadPage is starting]');
 	if (!ws
 		|| (ws
 			&& (ws.readyState < 1 || ws.readyState > 1))) {
 		ws = new WSocket("ws://localhost:7070");
-		console.log('WSOCKET: making a connection')
+		console.log('[server-event - WSOCKET: making a connection]')
 	}
 	let news = JSON.stringify({ news: [] });
-	console.log('NEWS MOCK: making a mock', news);
+	console.log('[server-event - NEWS MOCK: making a mock]: ', news);
 	ws.sends(news);
 	ws.onMessage = (e: any) => { callback(e.data) };
-	console.log('SEND MOCK!');
+	console.log('[server-event: SEND MOCK]');
 	ws.onOpen();
-	console.log('OPEN');
+	console.log('[server-event: OPEN]');
 
 	console.log('/*------------------\\')
 }

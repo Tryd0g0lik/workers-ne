@@ -16,9 +16,9 @@ function publicNews(news: string) {
 	const newsJson = JSON.parse(news);
 
 	if (!newsJson || typeof newsJson !== 'object') { return }
-	console.log('NEWS before insert: ', newsJson);
+	console.log('[news-public: NEWS before insert]: ', newsJson);
 
-	/* ----------cahe---------- */
+	/* ----------caсhe---------- */
 	newCache.cachingData(newsJson);
 	/* -------------------- */
 

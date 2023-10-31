@@ -19,13 +19,13 @@ const cachingData = async (datas: any) => {
 		await cache.add('./news');
 		await cache.put(request.url, response)
 
-		console.log('[CACHE - True END]:', true);
+		console.log('[news-cache: CACHE - True END]:', true);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return true
 	} catch (err: any) {
-		console.log('[CACHE - Catch END]:', false, err);
+		console.log('[news-cache: CACHE - Catch END]:', false, err);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return false
 	}
 }
-module.exports = () => { return cachingData; }
+module.exports = { cachingData }

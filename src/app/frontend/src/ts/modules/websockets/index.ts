@@ -56,7 +56,7 @@ export class WSocket {
 				this.socket.send(data);
 				this.handlers.data.pop();
 				return
-			} else setTimeout(() => this.onOpen(), 1000);
+			} else setTimeout(() => this.onOpen(), 3000);
 		}
 		else if (this.readyState > 1) {
 			data = this.handlers.data[0];

@@ -44,7 +44,7 @@ self.addEventListener('activate', (ev: any) => { console.log('Activated') });
 
 self.addEventListener('fetch', (ev: any) => {
 	console.log('[news-public: It is an Event Fetch]');
-	console.log('[news-public: ev.request.url]: ', ev.request.url);
+	// console.log('[news-public: ev.request.url]: ', ev.request.url);
 	const url = new URL(ev.request.url);
 	console.log('[news-public: It is an CACHE_PRIORITY_URLS]: ', CACHE_PRIORITY_URLS.includes(url.pathname));
 
