@@ -18,12 +18,14 @@ async function cachePriorityThenFethc(ev: any) {
 		response
 			.then(async (resp: any) => {
 				console.log('[CACHE-NEWS: resp]: ', resp);
-				const cache = await caches.open('v1');
-				cache.put(requests, response.clone());
+
 				console.log('[csche-then-fetch: It is cachePriorityThenFeth has an Fetch]');
 				return response
 			});
 
+		console.log('[csche-then-fetch: cachePriorityThenFeth; caches.open("v1")]');
+		const cache = await caches.open('v1');
+		cache.put(requests, response.clone());
 	} catch (err: any) {
 		console.log('[csche-then-fetch: It is cachePriorityThenFeth has an error]');
 		return
@@ -31,6 +33,3 @@ async function cachePriorityThenFethc(ev: any) {
 
 
 }
-
-
-module.exports = { cachePriorityThenFethc }
