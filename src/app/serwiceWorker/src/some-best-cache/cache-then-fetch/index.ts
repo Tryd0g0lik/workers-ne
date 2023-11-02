@@ -6,11 +6,11 @@ async function cachePriorityThenFethc(ev: any) {
 	let response: any;
 	const requests = ev.request;
 	console.log('[csche-then-fetch: requests]: ', requests);
-	const cacheResponse = await caches.match(requests);
+	response = await caches.match(requests);
 
-	if (cacheResponse) {
+	if (response) {
 		console.log('[csche-then-fetch: a cacheResponse variable is true]');
-		return cacheResponse
+		return response
 	}
 
 	try {
