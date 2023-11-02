@@ -16,8 +16,9 @@ function publicNews(news: string) {
 	const newsBox = document.querySelector('.news-feed');
 	const newsJson = JSON.parse(news);
 
-	if (!newsJson || typeof newsJson !== 'object') { return }
 	console.log('[news-public: NEWS before insert]: ', newsJson);
+	if (!newsJson || typeof newsJson !== 'object') { return }
+
 
 	/* ----------caсhe---------- */
 	newCache.priorityNews(newsJson);

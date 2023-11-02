@@ -8,6 +8,7 @@ const priorityNews = async (datas: any) => {
 	console.log('/---------CACHE-data News-below-----------------/')
 	try {
 		const jsonString = JSON.stringify(datas);
+		// const jsonString = datas;
 		const myOptions = {
 			status: 200,
 			type: 'basic',
@@ -19,11 +20,11 @@ const priorityNews = async (datas: any) => {
 		await cache.add('./news');
 		await cache.put(request.url, response)
 
-		console.log('[news-cache: CACHE - True END]:', true);
+		console.log('[priority-data: CACHE - True END]:', true);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return true
 	} catch (err: any) {
-		console.log('[news-cache: CACHE - Catch END]:', false, err);
+		console.log('[priority-data: CACHE - Catch END]:', false, err);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return false
 	}
