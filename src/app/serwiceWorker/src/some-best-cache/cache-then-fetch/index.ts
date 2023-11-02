@@ -1,9 +1,12 @@
 // src\app\serwiceWorker\src\some-best-cache\cache-then-fetch\index.ts
 
 async function cachePriorityThenFethc(ev: any) {
-	console.log('[csche-then-fetch: a cachePriorityThenFeth is beginning]');
+	console.log('[csche-then-fetch: a cachePriorityThenFeth is begining]');
+
 	let response: any;
-	const cacheResponse = await caches.match(ev.request);
+	const requests = ev.request;
+	console.log('[csche-then-fetch: requests]: ', requests);
+	const cacheResponse = await caches.match(requests);
 
 	if (cacheResponse) {
 		console.log('[csche-then-fetch: a cacheResponse variable is true]');
@@ -11,17 +14,22 @@ async function cachePriorityThenFethc(ev: any) {
 	}
 
 	try {
-		response = await fetch(ev.request);
+		response = await fetch(requests);
+		response
+			.then(async (resp: any) => {
+				console.log('[CACHE-NEWS: resp]: ', resp);
+				const cache = await caches.open('v1');
+				cache.put(requests, response.clone());
+				console.log('[csche-then-fetch: It is cachePriorityThenFeth has an Fetch]');
+				return response
+			});
 
 	} catch (err: any) {
 		console.log('[csche-then-fetch: It is cachePriorityThenFeth has an error]');
 		return
 	}
 
-	const cache = await caches.open('v1');
-	cache.put(ev.request, response.clone());
 
-	return response
 }
 
 

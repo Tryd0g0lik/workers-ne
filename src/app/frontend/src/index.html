@@ -78,11 +78,14 @@
 					await timer(3000);
 
 					console.log('SERVICEwORKER: stepped the CHECK!')
+					// serviceWorker: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer
 					navigator.serviceWorker
 						.register("./serwiceWorker.js")
 						.then((registration) => {
 							// func(registration)
 							console.log("Service worker зарегистрирован:", registration);
+
+							// .update(): https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
 							registration.update().then(async function () {
 								// const timer = (ms) => { new Promise((resolve) => setTimeout(resolve, ms)) }
 								// await timer(3000);
