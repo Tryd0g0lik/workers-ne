@@ -3,6 +3,9 @@
 **/*.v*
 **/dist
 
+**/yarn.lock
+yarn.lock
+
 pic
 coverage
 caches

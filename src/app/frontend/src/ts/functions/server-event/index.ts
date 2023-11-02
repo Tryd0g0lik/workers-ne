@@ -1,3 +1,8 @@
+// src\app\frontend\src\ts\functions\server-event\index.ts
+/**
+ * There function is simply 
+ * @param callback
+ */
 export function LoadPage(callback: any) {
 	const { WSocket } = require('../../modules/websockets/index.ts');
 	let ws: any;
