@@ -3,11 +3,11 @@
 // стратегии кеша
 const cf = require('./cache-then-fetch');
 const fetchCache = require('./fetch-then-cache')
-const { fun } = require('./cacher');
-const CACHE_PRIORITY_URLS = ['/frontend.js', '/index.html', '/main.css', '/pic/bg_buggy.png'];
+const { fun: cacher } = require('./cacher');
+const CACHE_PRIORITY_URLS = ['/frontend.js', '/index.html', '/main.css', '/pic/bg_buggy.png', '/'];
 
 self.addEventListener('install', (ev: any) => {
-	ev.waitUntil(fun());
+	ev.waitUntil(cacher());
 });
 
 self.addEventListener('activate', (ev: any) => { console.log('Activated') });

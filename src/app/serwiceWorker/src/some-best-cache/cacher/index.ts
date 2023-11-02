@@ -1,3 +1,5 @@
+// src\app\serwiceWorker\src\some - best - cache\cacher\index.ts
+
 export function fun() {
 	console.log("[some-best-cache: Genereter cache beginning to working]");
 	return caches.open('v1') // Создаём кеш с именем "cache-page"
