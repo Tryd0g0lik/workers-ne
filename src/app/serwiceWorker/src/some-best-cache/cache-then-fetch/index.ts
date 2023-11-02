@@ -1,3 +1,5 @@
+// src\app\serwiceWorker\src\some-best-cache\cache-then-fetch\index.ts
+
 async function cachePriorityThenFethc(ev: any) {
 	console.log('[news-public: a cachePriorityThenFeth is beginning]');
 	let response: any;

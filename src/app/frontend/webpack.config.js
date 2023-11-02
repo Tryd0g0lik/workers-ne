@@ -61,7 +61,8 @@ module.exports = {
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
 				include: [
-					path.join(__dirname, 'src/ts')
+					path.join(__dirname, 'src/ts'),
+					path.join(__dirname, '../serwiceWorker/src/some-best-cache/priority-data/index.ts')
 				]
 			},
 			{
@@ -109,6 +110,15 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+
+		/**
+			 * Below masking path. It's  path to caching strategy for the news.
+			 * 'cacheNews' it's name for import to 'dist/frontend.js' file.
+			 */
+		alias: {
+			'@priority-data': path.resolve(__dirname, '../serwiceWorker/src/some-best-cache/priority-data/index.ts')
+		}
+
 	},
 };
 

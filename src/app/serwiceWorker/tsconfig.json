@@ -8,7 +8,8 @@
 		// "allowJs": true
 	},
 	"files": [
-		"src/some-best-cache/index.ts"
+		"src/some-best-cache/index.ts",
+		"src/some-best-cache/priority-data/index.ts"
 	],
 	"exclude": [
 		"node_modules",

@@ -1,6 +1,7 @@
 // src\app\frontend\src\ts\functions\index.ts
 
-const newCache = require('../news-cache');
+// const newCache = require('../news-cache');
+const newCache = require('@priority-data');
 
 
 /**
@@ -19,7 +20,7 @@ function publicNews(news: string) {
 	console.log('[news-public: NEWS before insert]: ', newsJson);
 
 	/* ----------caсhe---------- */
-	newCache.cachingData(newsJson);
+	newCache.priorityNews(newsJson);
 	/* -------------------- */
 
 	(newsBox as HTMLElement).innerHTML = '';

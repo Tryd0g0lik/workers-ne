@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry: './index.js',
-	mode: process.nextTick.MODE_ENV === 'production',
+	mode: 'development',// process.nextTick.MODE_ENV === 'production',
 	target: 'web',
 	output: {
 		filename: 'serwiceWorker.js',

@@ -51,10 +51,10 @@ wss.on('connection', (ws: any, req: any) => {
 	ws.on('error', (err: any) => console.log('[serve: WebSocket return error]: ', err));
 });
 
-app.use(slow({
-	url: /\.(json||js)$/i,
-	delay: 10000
-}));
+// app.use(slow({
+// 	url: /\.(json||js)$/i,
+// 	delay: 10000
+// }));
 
 console.log('[serve: server]: ', Object.keys(server));
 server.listen(7070, (e: any) => console.log('[serve: Server has been started. Listen post: 7070] '));

@@ -1,7 +1,8 @@
 /** Создать эмулятор ошибки на сервере
  *
 */
-const newsPublic = require('./functions/news-public');
+// const newsPublic = require('./functions/news-public');
+const newsPublic = require('@priority-data');
 const { LoadPage } = require('./functions/server-event/index.ts');
 
 async function news() {
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	console.log('DOM IS!', navigator.onLine);
 	if (navigator && navigator.onLine && navigator.onLine === true) {
 		console.log('-----------------------------------')
-		LoadPage(newsPublic.publicNews);
+		LoadPage(newsPublic.priorityNews);
 		return
 	}
 
