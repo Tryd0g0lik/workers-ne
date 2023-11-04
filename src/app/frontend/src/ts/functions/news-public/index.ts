@@ -1,12 +1,11 @@
 // src\app\frontend\src\ts\functions\index.ts
 
-// const newCache = require('../news-cache');
-const newCache = require('@priority-data');
+const newsCache = require('@priority-data'); // кажется нужна стратегия
 
 
 /**
  *  Here is function for 2 actions:
- * 	1 - news sent for cache to the function "newCache": "newCache.cachingData(...)"
+ * 	1 - news sent for cache to the function "сache-news": "newCache.priorityNews(...)"
  *  2 - news's posts publications in view an html-box.
  *
  * @param news This is data formvat a strimg "{ here-is-your-one-news}"
@@ -21,7 +20,7 @@ function publicNews(news: string) {
 
 
 	/* ----------caсhe---------- */
-	newCache.priorityNews(newsJson);
+	newsCache.priorityNews(newsJson);
 	/* -------------------- */
 
 	(newsBox as HTMLElement).innerHTML = '';

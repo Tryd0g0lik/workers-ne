@@ -18,9 +18,9 @@ const priorityNews = async (datas: any) => {
 		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
 		let cache: any;
 		// waitUntil
-		cache = await caches.open('cache-news');
-		await cache.add('./news');
-		await cache.put(request.url, response)
+		// cache = await caches.open('cache-news');
+		// await cache.add('./news');
+		// await cache.put(request.url, response)
 
 		console.log('[priority-data: CACHE - True END]:', true);
 		console.log('/---------CACHE-data News-above-----------------/')

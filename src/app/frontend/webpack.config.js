@@ -62,7 +62,7 @@ module.exports = {
 				loader: 'ts-loader',
 				include: [
 					path.join(__dirname, 'src/ts'),
-					path.join(__dirname, '../serwiceWorker/src/some-best-cache/priority-data/index.ts')
+					path.join(__dirname, '../serwiceWorker/src/some-best-cache/cacher/priority-data/index.ts')
 				]
 			},
 			{
@@ -116,7 +116,7 @@ module.exports = {
 			 * 'cacheNews' it's name for import to 'dist/frontend.js' file.
 			 */
 		alias: {
-			'@priority-data': path.resolve(__dirname, '../serwiceWorker/src/some-best-cache/priority-data/index.ts')
+			'@priority-data': path.resolve(__dirname, '../serwiceWorker/src/some-best-cache/cacher/priority-data/index.ts')
 		}
 
 	},

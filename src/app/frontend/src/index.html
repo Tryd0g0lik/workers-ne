@@ -85,10 +85,10 @@
 							console.log("Service worker зарегистрирован:", registration);
 
 							// .update(): https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
-							registration.update().then(async function () {
-								const htmlPage = document.querySelector('html').innerHTML;
-								registration.active.postMessage({ page: htmlPage });
-							});
+							// registration.update().then(async function () {
+							// 	const htmlPage = document.querySelector('html').innerHTML;
+							// 	registration.active.postMessage({ page: htmlPage });
+							// });
 
 						})
 						.catch((error) => {
