@@ -1,10 +1,16 @@
+// serwiceWorker/src/some-best-cache/cacher/priority-data
+
 /**
  * At the entrance data-string - "{....}"
- *
- * @param datas : type is 'object'|| JSON. It's data entrance from server - "{'gaz':[...]}" - it is the listed news.
- * @returns true/false:  If "true" - then it's data saved in a cache. If not 'true' then it's error.
+ * for import:
+ * 		"const { priorityData: csd } = require('@priority-data');"
+ * @param datas : type is 'object'|| JSON. It's datas for cacher. Example:  "{'gaz':[...]}" - it is the listed news.
+ * @returns Promis<object|false>:  If geting an object this's a responce. - it's saving datas for a cache. If no object it's error.
  */
-const priorityNews = async (datas: any) => {
+const priorityData = async (datas: object): Promise<object | boolean> => {
+	let cache: any;
+	let result: any;
+
 	console.log('/---------CACHE-data News-below-----------------/')
 	try {
 		const jsonString = JSON.stringify(datas);
@@ -16,19 +22,23 @@ const priorityNews = async (datas: any) => {
 		};
 		const response = new Response(jsonString, myOptions);
 		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
-		let cache: any;
-		// waitUntil
-		// cache = await caches.open('cache-news');
-		// await cache.add('./news');
-		// await cache.put(request.url, response)
+
+		// result = await caches
+		// 	.match(request);
+
+		cache = await caches.open('cache-news');
+		if (!result) { await cache.add('./news') }
+
+		await cache
+			.put(request.url, response.clone()) // вынести в стратегию
 
 		console.log('[priority-data: CACHE - True END]:', true);
 		console.log('/---------CACHE-data News-above-----------------/')
-		return true
+		return response
 	} catch (err: any) {
 		console.log('[priority-data: CACHE - Catch END]:', false, err);
 		console.log('/---------CACHE-data News-above-----------------/')
 		return false
 	}
 }
-module.exports = { priorityNews }
+module.exports = { priorityData }

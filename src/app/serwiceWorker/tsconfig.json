@@ -3,14 +3,11 @@
 	"compilerOptions": {
 		// "allowSyntheticDefaultImports": true,
 		// "noImplicitAny": true,
-		"module": "CommonJS",
+		// "module": "CommonJS",
 		// "target": "ES5",
 		// "allowJs": true
+	"strictNullChecks": false
 	},
-	"files": [
-		"src/some-best-cache/index.ts",
-		"src/some-best-cache/cacher/priority-data/index.ts"
-	],
 	"exclude": [
 		"node_modules",
 		"directory",

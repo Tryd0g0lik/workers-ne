@@ -1,5 +1,6 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+// src\app\serwiceWorker\webpack.config.js
 
+// Generated using webpack-cli https://github.com/webpack/webpack-cli
 const path = require('path');
 const webpack = require('webpack');
 // const isProduction = process.env.NODE_ENV == 'production';
@@ -29,9 +30,10 @@ module.exports = {
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
 				include: [
-					path.resolve((__dirname, "./src"))
+					path.resolve(__dirname, "./src")
+
 				],
-				options: { configFile: path.resolve(__dirname, "../../../tsconfig.json") }
+				options: { configFile: path.resolve(__dirname, "./tsconfig.json") }
 			},
 			{
 				test: /\.js$/i,
@@ -62,6 +64,10 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+		alias: {
+			'@priority-data': path.resolve(__dirname, './src/some-best-cache/cacher/priority-data/index.ts'),
+			'@strategy-FetchThenCache': path.resolve(__dirname, './src/some-best-cache/fetch-then-cache/index.ts')
+		}
 	},
 };
 

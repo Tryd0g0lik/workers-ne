@@ -6,7 +6,8 @@
 		"allowJs": false,
 		"rootDirs": [
 			"./src/app/backend/src",
-			"./src/app/frontend/src/ts"
+			"./src/app/frontend", // "./src/app/frontend/src/ts"
+			"./src/app/serwiceWorker"
 		],
 		"outDir": "./dist",
 		"allowSyntheticDefaultImports": true,

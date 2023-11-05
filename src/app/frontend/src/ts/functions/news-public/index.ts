@@ -1,11 +1,11 @@
 // src\app\frontend\src\ts\functions\index.ts
 
-const newsCache = require('@priority-data'); // кажется нужна стратегия
-
+// const newsCache = require('@priority-data'); // кажется нужна стратегия
+const strategy = require('@strategy-FetchThenCache');
 
 /**
  *  Here is function for 2 actions:
- * 	1 - news sent for cache to the function "сache-news": "newCache.priorityNews(...)"
+ * 	1 - news sent for cache to the function "сache-news": "newCache.priorityData(...)"
  *  2 - news's posts publications in view an html-box.
  *
  * @param news This is data formvat a strimg "{ here-is-your-one-news}"
@@ -19,9 +19,9 @@ function publicNews(news: string) {
 	if (!newsJson || typeof newsJson !== 'object') { return }
 
 
-	/* ----------caсhe---------- */
-	newsCache.priorityNews(newsJson);
-	/* -------------------- */
+	/* ----------Brlow's a caсher for the news. It's datas from the server ---------- */
+	strategy.fetchPriorityThenCache(newsJson);
+	/* ----------end---------- */
 
 	(newsBox as HTMLElement).innerHTML = '';
 	for (let i = 0; i < newsJson['gaz'].length; i++) {
