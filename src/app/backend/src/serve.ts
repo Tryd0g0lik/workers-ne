@@ -17,6 +17,13 @@ const db = require('./db/news.json');
 
 console.log('D_B: ', db['gaz'][10]);
 
+app.use(async (ctx: any, next: any) => {
+	ctx.set('Access-Control-Allow-Origin', '*');
+	ctx.set('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
+	ctx.set('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+	await next();
+});
+
 // try {
 wss.on('connection', (ws: any, req: any) => {
 	console.log('/*-----------------------------------------------*/')

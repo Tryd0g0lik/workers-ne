@@ -66,7 +66,7 @@ module.exports = {
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
 		alias: {
 			'@priority-data': path.resolve(__dirname, './src/some-best-cache/cacher/priority-data/index.ts'),
-			'@strategy-FetchThenCache': path.resolve(__dirname, './src/some-best-cache/fetch-then-cache/index.ts')
+
 		}
 	},
 };
