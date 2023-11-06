@@ -11,10 +11,9 @@ const priorityData = async (datas: object): Promise<object | boolean> => {
 	let cache: any;
 	let result: any;
 
-	console.log('/---------CACHE-data News-below-----------------/')
+	console.log('[priority-data]: cacher for a data');
 	try {
 		const jsonString = JSON.stringify(datas);
-		// const jsonString = datas;
 		const myOptions = {
 			status: 200,
 			type: 'basic',
@@ -22,22 +21,18 @@ const priorityData = async (datas: object): Promise<object | boolean> => {
 		};
 		const response = new Response(jsonString, myOptions);
 		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
-
-		// result = await caches
-		// 	.match(request);
-
+		console.log('[priority-data]: cacher for a data; OPEN');
 		cache = await caches.open('cache-news');
 		if (!result) { await cache.add('./news') }
 
+		console.log('[priority-data]: cacher for a data; cache.PUT');
 		await cache
 			.put(request.url, response.clone()) // вынести в стратегию
-
-		console.log('[priority-data: CACHE - True END]:', true);
-		console.log('/---------CACHE-data News-above-----------------/')
+		console.log('[priority-data]: cacher for a data; True END');
 		return response
+
 	} catch (err: any) {
-		console.log('[priority-data: CACHE - Catch END]:', false, err);
-		console.log('/---------CACHE-data News-above-----------------/')
+		console.log('[priority-data]: cacher for a data; ERROR', `err: ${err}`);
 		return false
 	}
 }

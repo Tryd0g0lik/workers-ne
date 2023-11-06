@@ -11,22 +11,22 @@ const { priorityData: priority } = require('@priority-data');
  * 		here a path is inserting It is the key for the datas from the cache.
  * @returns 'Promise<object | void>'
  */
-async function fetchPriorityThenCache(ev?: any, datas?: object, datasName?: string): Promise<object | void> {
+// async function fetchPriorityThenCache(ev?: any, datas?: object, datasName?: string): Promise<object | void> {
 
-	console.log(`[fetch-then-cache]:
-		ev?: ${Object.entries(ev)},
+// 	console.log(`[fetch-then-cache]:
+// 		ev?: ${Object.entries(ev)},
 
-		datas?: ${typeof datas},
-		 datasName: ${datasName}
-	`);
-	let responce: any;
-	let cache: any;
+// 		datas?: ${typeof datas},
+// 		 datasName: ${datasName}
+// 	`);
+// 	let responce: any;
+// 	let cache: any;
 
-	if (datas as object) {
-		priority(datas);
-		return datas
+// 	if (datas as object) {
+// 		priority(datas);
+// 		return datas
 
-	}
+// 	}
 	// else if (Object.entries(ev)) {
 	// if (ev.request) {
 	// void
@@ -65,6 +65,6 @@ async function fetchPriorityThenCache(ev?: any, datas?: object, datasName?: stri
 	// 	return responce
 
 	// }
-}
+// }
 
-module.exports = { fetchPriorityThenCache }
+// module.exports = { fetchPriorityThenCache }
