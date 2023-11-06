@@ -73,14 +73,14 @@
 			if ("serviceWorker" in navigator) {
 				// Регистрация service worker-а, расположенного в корне сайта
 				// за счёт использования дефолтного scope (не указывая его)
-				window.addEventListener('load', async () => {
-					const timer = (ms) => { new Promise((resolve) => setTimeout(resolve, ms)) }
-					await timer(3000);
+				// window.addEventListener('load', async () => {
+				// const timer = (ms) => { new Promise((resolve) => setTimeout(resolve, ms)) }
+				// await timer(3000);
 
 					console.log('SERVICEwORKER: stepped the CHECK!')
 					// serviceWorker: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer
 					navigator.serviceWorker
-						.register("./serwiceWorker.js")
+						.register("./serwiceWorker.js") //, {scope: './sw-test/'} - папка на которую применяем serwice Worker
 						.then((registration) => {
 							console.log("Service worker зарегистрирован:", registration);
 
@@ -96,7 +96,7 @@
 						});
 
 					console.log('SERVICEwORKER: stepped the navigator!')
-				})
+				// })
 			} else {
 				// Текущий браузер не поддерживает service worker-ы.
 				console.log("Текущий браузер не поддерживает service worker-ы");

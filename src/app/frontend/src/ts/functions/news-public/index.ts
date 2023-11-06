@@ -1,7 +1,7 @@
 // src\app\frontend\src\ts\functions\index.ts
 
-// const newsCache = require('@priority-data'); // кажется нужна стратегия
-const strategy = require('@strategy-FetchThenCache');
+const { priorityData: dataPriority } = require('@priority-data'); // кажется нужна стратегия
+// const strategy = require('@strategy-FetchThenCache');
 
 /**
  *  Here is function for 2 actions:
@@ -12,15 +12,19 @@ const strategy = require('@strategy-FetchThenCache');
  * @returns
  */
 function publicNews(news: string) {
+	console.log(`[news-public]: news: ${typeof news}`);
 	const newsBox = document.querySelector('.news-feed');
 	const newsJson = JSON.parse(news);
 
-	console.log('[news-public: NEWS before insert]: ', newsJson);
 	if (!newsJson || typeof newsJson !== 'object') { return }
 
 
 	/* ----------Brlow's a caсher for the news. It's datas from the server ---------- */
-	strategy.fetchPriorityThenCache(newsJson);
+	console.log('[news-public]: strategy.fetchPriorityThenCache');
+	let datas: object;
+	let datasName: string;
+	// strategy.fetchPriorityThenCache(datas = newsJson);
+	dataPriority(newsJson);
 	/* ----------end---------- */
 
 	(newsBox as HTMLElement).innerHTML = '';

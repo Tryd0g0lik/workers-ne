@@ -15,8 +15,5 @@ export function priorityStaticFiles() {
 				'./pic/bg_buggy.png',
 				'/frontend.js'
 			])
-		})
-		.finally(() => {
-			console.log("[some-best-cache: v1 cache was completed]")
 		});
 }
