@@ -43,10 +43,8 @@ wss.on('connection', (ws: any, req: any) => {
 		ws.on('message', (mes: any) => {
 			const message = JSON.parse(mes);
 			console.log('[serve: WebSockwt got the message]: ', message);
-			// console.log('WebSockwt got the client: ', client);
 			const dbString = JSON.stringify(db);
 			console.log('[serve: make a db:string for a sending]');
-
 
 			Array.from(wss.clients).forEach((client: any) => client.send(dbString));
 

@@ -1,4 +1,5 @@
 // src\app\frontend\src\ts\functions\server-event\index.ts
+
 /**
  * There function is simply
   * @param callback
@@ -20,6 +21,4 @@ export function LoadPage(callback: any) {
 	console.log('[server-event: SEND MOCK]');
 	ws.onOpen();
 	console.log('[server-event: OPEN]');
-
-	console.log('/*------------------\\')
 }

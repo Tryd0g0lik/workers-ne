@@ -13,7 +13,7 @@
 export class WSocket {
 	socket: any;
 	handlers: any;
-	// url: string;
+
 	constructor(url: string) {
 		this.socket = new WebSocket(url);
 		this.socket.addEventListener('open', (e: any) => { console.log('OPEN') });
@@ -26,12 +26,14 @@ export class WSocket {
 		});
 
 		this.socket.addEventListener('close', (e: any) => {
-			if (e.wasClean) { console.log('WebSocket connection closed clean!') }
-			else { console.log('WebSocket connection closed aborted!') };
+			if (e.wasClean) console.log('WebSocket connection closed clean!')
+			else console.log('WebSocket connection closed aborted!');
 			console.log('WS closed Event: ', e['message']);
 
 		});
-		this.socket.addEventListener('error', (e: any) => { this.onError(e) });
+		this.socket.addEventListener('error', (e: any) => {
+			this.onError(e)
+		});
 
 		this.handlers = {
 			open: [],
@@ -43,9 +45,14 @@ export class WSocket {
 	 * Getin datas for to sends.
 	 * @param datas:string Ti's JSON.stryngify(data);
 	 */
-	sends(datas: string) { this.handlers.data.push(datas) };
+	sends(datas: string) {
+		this.handlers.data.push(datas)
+	};
 
-
+	/**
+	 * The connection opens here
+	 * @returns void
+	 */
 	onOpen() {
 		let data: string = '';
 		if (this.handlers.data.length > 0) {
@@ -69,11 +76,36 @@ export class WSocket {
 		}
 	};
 
-	get readyState() { return this.socket.readyState }
-	onMessage = (e: any) => { console.log('WebSocket Received message: ', e.data) };
-	onClose() { return this.socket.close() };
-	closing = (e: any) => { console.log('here is your handler'); };
-	onError(e: any) { console.log('WebSocket error: ', e) };
+	get readyState() {
+		return this.socket.readyState
+	}
+
+	onMessage = (e: any) => {
+		console.log('WebSocket Received message: ', e.data)
+	};
+
+	onClose() {
+		return this.socket.close()
+	};
+
+	/**
+	 * Here's the empty method. The mothod's body is only a mock.
+	 * Your code for your needs
+	 * @param e: It's an  event from the addEventlistener.
+	 */
+	closing = (e: any) => {
+		console.log('here is your handler');
+	};
+
+	/**
+ * Here's the empty method. The mothod's body is only a mock.
+ * Your code for your needs
+ * It's called in to `this.socket.addEventListener('error')`
+ * @param e: It's an  event from the addEventlistener.
+ */
+	onError(e: any) {
+		console.log('WebSocket error: ', e)
+	};
 }
 
 // WebSocets

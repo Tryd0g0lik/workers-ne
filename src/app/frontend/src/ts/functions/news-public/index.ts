@@ -4,11 +4,11 @@ const { priorityData: dataPriority } = require('@priority-data'); // кажет�
 // const strategy = require('@strategy-FetchThenCache');
 
 /**
- *  Here is function for 2 actions:
+ *  Here is function for - 2 actions:
  * 	1 - news sent for cache to the function "сache-news": "newCache.priorityData(...)"
  *  2 - news's posts publications in view an html-box.
  *
- * @param news This is data formvat a strimg "{ here-is-your-one-news}"
+ * @param news: This is data formvat a strimg "{ here-is-your-one-news}"
  * @returns
  */
 function publicNews(news: string) {
@@ -19,14 +19,11 @@ function publicNews(news: string) {
 	if (!newsJson || typeof newsJson !== 'object') { return }
 
 
-	/* ----------Brlow's a caсher for the news. It's datas from the server ---------- */
-	console.log('[news-public]: strategy.fetchPriorityThenCache');
-	let datas: object;
-	let datasName: string;
-	// strategy.fetchPriorityThenCache(datas = newsJson);
+	/* ----------Action one: Brlow's a caсher for the news. It's datas from the server ---------- */
 	dataPriority(newsJson);
 	/* ----------end---------- */
 
+	/* ----------Action two: It's datas publications to the page-html---------- */
 	(newsBox as HTMLElement).innerHTML = '';
 	for (let i = 0; i < newsJson['gaz'].length; i++) {
 		const oneNews = newsJson['gaz'];
