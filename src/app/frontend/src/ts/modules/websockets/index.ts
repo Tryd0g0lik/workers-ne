@@ -63,7 +63,11 @@ export class WSocket {
 				this.socket.send(data);
 				this.handlers.data.pop();
 				return
-			} else setTimeout(() => this.onOpen(), 10000);
+			} else setTimeout(() => {
+				document.querySelector('link[href="style-serve-error.css"]')?.remove()
+
+				this.onOpen()
+			}, 15000);
 		}
 		else if (this.readyState > 1) {
 			data = this.handlers.data[0];
