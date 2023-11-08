@@ -1,1 +1,1 @@
-import "./src/index.ts"
+import "./src/some-best-cache/index.ts";

@@ -24,7 +24,7 @@
 			</div>
 			<div class="new-content">
 				<div class="news-content-preview">
-					<img src="./frontend/src/pic/bg_buggy.png" alt="" class="picturies">
+					<img src="./pic/bg_buggy.png" alt="" class="picturies">
 				</div>
 				<div>
 					<p>"Газпром" обсудил с Кишиневом взаимодействие в газовой сфере</p>
@@ -38,7 +38,7 @@
 			</div>
 			<div class="new-content">
 				<div class="news-content-preview">
-					<img src="./frontend/src/pic/bg_buggy.png" alt="" class="picturies">
+					<img src="./pic/bg_buggy.png" alt="" class="picturies">
 				</div>
 				<div>
 					<p>"Газпром" подает газ через Украину на ГИС "Суджа" в подтвержденном объеме</p>
@@ -53,7 +53,7 @@
 			<div class="new-content">
 
 				<div class="news-content-preview">
-					<img src="./frontend/src/pic/bg_buggy.png" alt="" class="picturies">
+					<img src="./pic/bg_buggy.png" alt="" class="picturies">
 				</div>
 				<div>
 					<p>В Саратове восстановили газопровод после разгерметизации</p>
@@ -73,24 +73,22 @@
 			if ("serviceWorker" in navigator) {
 				// Регистрация service worker-а, расположенного в корне сайта
 				// за счёт использования дефолтного scope (не указывая его)
-				window.addEventListener('load', async () => {
-					const timer = (ms) => { new Promise((resolve) => setTimeout(resolve, ms)) }
-					await timer(3000);
+				// window.addEventListener('load', async () => {
+				// const timer = (ms) => { new Promise((resolve) => setTimeout(resolve, ms)) }
+				// await timer(3000);
 
 					console.log('SERVICEwORKER: stepped the CHECK!')
+					// serviceWorker: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer
 					navigator.serviceWorker
-						.register("./serwiceWorker.js")
+						.register("./serwiceWorker.js") //, {scope: './sw-test/'} - папка на которую применяем serwice Worker
 						.then((registration) => {
-							// func(registration)
 							console.log("Service worker зарегистрирован:", registration);
-							registration.update().then(async function () {
-								// const timer = (ms) => { new Promise((resolve) => setTimeout(resolve, ms)) }
-								// await timer(3000);
-								const htmlPage = document.querySelector('html').innerHTML;
-								// debugger;
-								registration.active.postMessage({ page: htmlPage });
 
-							});
+							// .update(): https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
+							// registration.update().then(async function () {
+							// 	const htmlPage = document.querySelector('html').innerHTML;
+							// 	registration.active.postMessage({ page: htmlPage });
+							// });
 
 						})
 						.catch((error) => {
@@ -98,7 +96,7 @@
 						});
 
 					console.log('SERVICEwORKER: stepped the navigator!')
-				})
+				// })
 			} else {
 				// Текущий браузер не поддерживает service worker-ы.
 				console.log("Текущий браузер не поддерживает service worker-ы");

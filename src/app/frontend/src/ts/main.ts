@@ -1,31 +1,35 @@
 /** Создать эмулятор ошибки на сервере
  *
 */
-const { publicNews } = require('./functions/index.ts');
-const { LoadPage } = require('./functions/serverEvent/index.ts');
-
-async function news() {
-	const cache = await caches.open('cache-news-v1')
-	const response = await cache.match('./news')
-	if (response) {
-		response.json().then(data => {
-			console.log(data);
-			if (!data) return
-			publicNews(JSON.stringify(data))
-		});
-	} else {
-		console.log('Data not found in cache');
-	}
-}
+const newsPublic = require('./functions/news-public');
+const { LoadPage } = require('./functions/server-event/index.ts');
 
 document.addEventListener('DOMContentLoaded', () => {
 	console.log('DOM IS!', navigator.onLine);
-	if (navigator && navigator.onLine && navigator.onLine === true) {
-		console.log('-----------------------------------')
-		LoadPage(publicNews);
+	if (navigator && navigator.onLine) {
+		console.log('[main]: Dinamic DATA BEGINNING; navigator.onLine;');
+		/* below's a 'publicNews' function for a public news */
+		LoadPage(newsPublic.publicNews);
+		/* ----------end---------- */
 		return
-	}
+	};
 
-	news();
+	console.log('[main]: Dinamic DATA BEGINNING; navigator.offline;');
+	async function news() {
+		const cache = await caches.open('cache-news') //  Открываем кеш
+		const response = await cache.match('./news') // указываем ключ
+		if (response) {
+			response.json().then(data => {
+				console.log(data);
+				if (!data) return
+				newsPublic.publicNews(JSON.stringify(data)) // Размещаем данные на странице
+			});
+		} else {
+			console.log('Data not found in cache');
+		}
+	};
+	news()
+
+
 
 })

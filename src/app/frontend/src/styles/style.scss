@@ -77,17 +77,41 @@ main {
 }
 
 .new-content {
-	align-content: flex-start;
-	align-items: flex-start;
+	
+	align-items: center;
+	
 	justify-content: space-between;
 	padding-top: 13px;
-
+	
 	div:last-of-type {
 		padding-left: 22px;
-	}
+	};
 
-	.new-content-preview {
+	.news-content-preview {
 		width: 46px;
-		height: 46px;
+		height: 42px;
+		
+		
 	}
 }
+
+
+.data-news{
+	.news-datetime{
+		width: 80.63px;
+		
+	};
+
+	.news-date{
+		width:41.47px;
+	};
+	
+	.news-datetime,
+	.news-date{
+		max-height: 18px;
+		min-height:18px;
+		/*background-color: #ccc;
+		font-size: 0px;*/
+	}
+
+};

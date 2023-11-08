@@ -1,56 +1,35 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require('path');
-
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
-	entry: './src/index.js',
-	mode: "none",
-
-	target: 'node',
+	mode: 'none',
+	entry: path.resolve(__dirname, './src/db/news.json'),
 	output: {
-		filename: 'backend.js',
 		path: path.resolve(__dirname, '../../../dist')
 	},
 
-	// plugins: [
-	// new webpack.SourceMapDevToolPlugin({
-	// 	filename: '[file].map.[query]',
-	// 	exclude: path.join(__dirname, 'src'),
-	// }),
-	// Add your plugins here
-	// Learn more about plugins from https://webpack.js.org/configuration/plugins/
-	// ]
+	plugins: [
+		new CopyPlugin({
+			patterns: [
+				{ from: './src/db/news.json', to: 'db/', },
+				// transform(content) {
+				//     const data = JSON.parse(content);
+				//     // modify the JSON data here if needed
+				//     return JSON.stringify(data);
+				//   },
+			],
+		}),
+		// new webpack.SourceMapDevToolPlugin({
+		// 	filename: '[file].map.[query]',
+		// 	exclude: path.join(__dirname, 'src'),
+		// }),
+		// Add your plugins here
+		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+	],
 	module: {
 		rules: [
-			{
-				test: /\.(ts|tsx)$/i,
-				loader: 'ts-loader',
-				include: [
-					path.resolve(__dirname, "src")
-				],
-				options: {
-					configFile: path.resolve(__dirname, '../../../tsconfig.json'),
-				}
-			},
-			{
-				test: /\.js$/i,
-				include: [
-					path.resolve(__dirname, 'src')
-				],
-				use: [{
-					loader: 'babel-loader',
-					options: {
-						presets: [
-							['@babel/preset-env', { targets: "defaults" }]
-						],
-						plugins: [
-							'@babel/plugin-proposal-class-properties',
-						],
-						configFile: "../../../.babelrc"
-					}
-				}],
 
-			},
 			// {
 			// 	test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
 			// 	type: 'asset',
