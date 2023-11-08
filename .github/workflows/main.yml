@@ -34,8 +34,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build-frontend
-        run: yarn workspace run build:dev
+      - name: Build
+        run: yarn build:dev
 
       # - name: Build-folder-BackandDb
       #   run: |
