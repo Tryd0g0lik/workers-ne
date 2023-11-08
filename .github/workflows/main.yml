@@ -35,15 +35,15 @@ jobs:
         run: yarn install
 
       - name: Build-frontend
-        run: yarn workspace child-frontend-config run build:dev
+        run: yarn workspace run build:dev
 
-      - name: Build-folder-BackandDb
-        run: |
-          mkdir -p dist/backend/wsServer
-          mkdir -p dist/backend/wsServer/db
+      # - name: Build-folder-BackandDb
+      #   run: |
+      #     mkdir -p dist/backend/wsServer
+      #     mkdir -p dist/backend/wsServer/db
 
-      - name: Build-workspace-build:dev
-        run: yarn workspace child-backend-config run build:dev
+      # - name: Build-workspace-build:dev
+      #   run: yarn start:back
 
       # - name: Buil-subtree-creat-dist-backend
       #   run: |
