@@ -11,6 +11,7 @@
 	div:last-of-type{
 		max-width: 370px;
 		width: 100%;
+		min-height:49px;
 		margin-left: 22px;
 
 		p{
@@ -24,10 +25,11 @@
 	
 }
 
-
-.data-news .news-date,
+.data-news .news-datetime,
+.data-news .news-date, 
 .new-content .news-content-preview, 
 .new-content div:last-of-type {
+		font-size:0;
 		
 		
 		background: linear-gradient(-45deg, #ff9966, #ff5e62, #ff66cc, #b300b3, #33ccff, #6699ff, #00bfff, #00ffcc, #00ff99, #33cc33, #99ff33, #ffff66, #ffcc00, #ff9933, #ff6666, #ff5e62);
