@@ -2,12 +2,8 @@ const http = require('http');
 const Koa = require('koa');
 const logger = require('koa-logger');
 const { koaBody } = require('koa-body');
-const slow = require('koa-slow');
-// const Router = require('koa-better-router');
 
 const WS = require('ws');
-
-// const router = new Router();
 const app = new Koa();
 app.use(logger());
 const server = new http.createServer(app.callback);
@@ -17,15 +13,14 @@ const db = require('./db/news.json');
 
 console.log('D_B: ', db['gaz'][10]);
 
-app.use(async (ctx: any, next: any) => {
+app.use(async function (ctx: any, next: any) {
 	ctx.set('Access-Control-Allow-Origin', '*');
 	ctx.set('Access-Control-Allow-Headers', 'origin, x-requested-with, content-type');
 	ctx.set('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
 	await next();
 });
 
-// try {
-wss.on('connection', (ws: any, req: any) => {
+wss.on('connection', function (ws: any, req: any) {
 	console.log('/*-----------------------------------------------*/')
 	console.log('[serve: ws]: ', Object.keys(ws))
 	console.log('[serve: red]: ', Object.keys(req))
@@ -49,17 +44,17 @@ wss.on('connection', (ws: any, req: any) => {
 			Array.from(wss.clients).forEach((client: any) => client.send(dbString));
 
 		});
-	} catch (e: any) { console.error('Error Server: ', e) }
+	} catch (e: any) {
+		console.error('Error Server: ', e)
+	}
 
 	ws.on('close', (e: any) => console.log('[serve: WebSocked was closed]', e));
 
 	ws.on('error', (err: any) => console.log('[serve: WebSocket return error]: ', err));
 });
 
-// app.use(slow({
-// 	url: /\.(json||js)$/i,
-// 	delay: 10000
-// }));
+
+
 
 console.log('[serve: server]: ', Object.keys(server));
 server.listen(7070, (e: any) => console.log('[serve: Server has been started. Listen post: 7070] '));

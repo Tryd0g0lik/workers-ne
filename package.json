@@ -51,7 +51,6 @@
 		"babel-plugin-module-resolver": "^5.0.0",
 		"html-webpack-include-assets-plugin": "^2.0.0",
 		"koa-logger": "^3.2.1",
-		"koa-slow": "^2.1.0",
 		"ts-loader": "^9.4.4",
 		"tsc": "^2.0.4",
 		"typescript": "^5.2.2"

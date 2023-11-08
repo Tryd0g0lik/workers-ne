@@ -2,15 +2,21 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-	entry: './src/index.js',
+	// entry: './src/index.js',
+	entry: {
+		frontend: './src/index.js',
+		main: './src/styles/style.scss',
+		"style-serve-error": './src/styles/style-serve-error.scss'
+	},
 	mode: "none",
 	target: 'web',
 	output: {
-		filename: 'frontend.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, '../../../dist'),
 		// libraryTarget || output.library.type : "commonjs"
 
@@ -50,11 +56,13 @@ module.exports = {
 
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
-		}),
+		}), // { filename: '[name].css' }
 
 		// Add your plugins here
 		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 	],
+
+
 	module: {
 		rules: [
 			{
@@ -71,7 +79,7 @@ module.exports = {
 			{
 				test: /\.js$/i,
 				include: [
-					path.resolve(__dirname, 'src')
+					path.resolve(__dirname, 'src/ts')
 				],
 				use: [{
 					loader: 'babel-loader',
@@ -90,7 +98,8 @@ module.exports = {
 			{
 				test: /\.s?[ac]ss$/i,
 				include: [
-					path.resolve(__dirname, './src/styles/style.scss')
+					path.resolve(__dirname, './src/styles')
+
 				],
 				use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader", 'postcss-loader']
 
