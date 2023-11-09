@@ -13,6 +13,7 @@ module.exports = [
 		entry: './src/app/serwiceWorker/webpack.config.js',
 	},
 
+<<<<<<< HEAD
 	// {
 	// 	name: 'webpack_backend',
 	// 	entry: './src/app/backend/webpack.config.js',
@@ -21,6 +22,54 @@ module.exports = [
 	{
 		mode: 'none',
 		entry: './src/index.js',
+=======
+	// plugins: [
+	// new webpack.SourceMapDevToolPlugin({
+	// 	filename: '[file].map.[query]',
+	// 	exclude: path.join(__dirname, 'src'),
+	// }),
+	// Add your plugins here
+	// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+	// ]
+	module: {
+		rules: [
+			{
+				test: /\.(ts|tsx)$/i,
+				loader: 'ts-loader',
+				include: [
+					path.resolve(__dirname, "src")
+				],
+				options: {
+					configFile: path.resolve(__dirname, '../../../tsconfig.json'),
+				}
+			},
+			{
+				test: /\.js$/i,
+				include: [
+					path.resolve(__dirname, 'src')
+				],
+				use: [{
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							['@babel/preset-env', { targets: "defaults" }]
+						],
+						plugins: [
+							'@babel/plugin-transform-class-properties',
+						],
+						configFile: "../../../.babelrc"
+					}
+				}],
+
+			},
+			// {
+			// 	test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+			// 	type: 'asset',
+			// },
+
+			// Add your rules for custom modules here
+			// Learn more about loaders from https://webpack.js.org/loaders/
+>>>>>>> c795420c1ca4f0637fd444c6e12733c8d94aead8
 
 		plugins: [
 			// Add your plugins here

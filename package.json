@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
 	"name": "workers-ne",
 	"version": "2.0.0",
+=======
+	"name": "child-webpack-backend",
+	"version": "1.0.0",
+>>>>>>> c795420c1ca4f0637fd444c6e12733c8d94aead8
 	"main": "./src/index.js",
 	"repository": "https://github.com/Tryd0g0lik/workers-ne.git",
 	"author": "Tryd0g0lik",
