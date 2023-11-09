@@ -45,7 +45,7 @@ module.exports = {
 							['@babel/preset-env', { targets: "defaults" }]
 						],
 						plugins: [
-							'@babel/plugin-proposal-class-properties',
+							'@babel/plugin-transform-class-properties',
 						],
 						configFile: "../../../.babelrc"
 					}
