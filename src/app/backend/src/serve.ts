@@ -2,12 +2,13 @@ const http = require('http');
 const Koa = require('koa');
 const logger = require('koa-logger');
 const { koaBody } = require('koa-body');
-
 const WS = require('ws');
-const app = new Koa();
-const server = new http.createServer(app.callback);
-const wss = new WS.Server({ server });
 const { appWebsockets: wsServer } = require('./wsServer');
+
+const app = new Koa();
+const server = new http.createServer(app.callback());
+const wss = new WS.Server({ server });
+
 const PORT = process.env.PORT || 7070;
 
 app.use(logger());
