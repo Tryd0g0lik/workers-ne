@@ -32,7 +32,7 @@ module.exports = {
 			'./src/app/styles',
 			'./src/app/ts',
 			'./src/app/serve.ts',
-			'./src/app/serwiceWorker.ts'
+			'./src/app/serwiceWorker/index.ts'
 		],
 
 		compress: true,
