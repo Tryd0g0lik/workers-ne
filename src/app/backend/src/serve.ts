@@ -25,7 +25,7 @@ app.use((ctx: any) => {
 });
 
 
-server.listen("https://workers-ne.onrender.com/", () => {
+server.listen("workers-ne.onrender.com", () => {
 	console.log('[serve: Server has been started.] ')
 });
 
