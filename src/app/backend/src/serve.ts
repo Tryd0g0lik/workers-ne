@@ -57,7 +57,7 @@ wss.on('connection', function (ws: any, req: any) {
 
 
 console.log('[serve: server]: ', Object.keys(server));
-server.listen(PORT, (e: any) => console.log('[serve: Server has been started. Listen post: 7070] '));
+server.listen(PORT, (e: any) => console.log('[serve: Server has been started.] '));
 
 // const { Server } = require('mock-socket')
 
