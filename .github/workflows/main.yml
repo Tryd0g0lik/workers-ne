@@ -48,6 +48,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        uses: actions/deploy-pages@v1.2.9
         with:
           folder: dist
