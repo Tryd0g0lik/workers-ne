@@ -1,6 +1,6 @@
 [![workers-ne](https://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml)
 [![Build status](https://ci.appveyor.com/api/projects/status/m7rwpuj547x2gkcr/branch/master?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/workers-ne/branch/main)
-[![Build status](https://ci.appveyor.com/api/projects/status/wbc09tmmkaiuy3tp/branch/master?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/dnd-ne/branch/master)
+
 # Домашнее задание к занятию "12. WebWorkers, ServiceWorkers"
 
 Правила сдачи задания:
