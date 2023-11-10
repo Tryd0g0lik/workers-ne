@@ -21,11 +21,11 @@ app.use(async function (ctx: any, next: any) {
 
 wsServer(wss);
 app.use((ctx: any) => {
-	ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)} and  PORT: ${PORT}`;
+	ctx.body = `Request Body: ${JSON.stringify(ctx.request)} and  PORT: ${PORT}`;
 });
 
 
-server.listen("workers-ne.onrender.com", () => {
+server.listen(PORT, () => {
 	console.log('[serve: Server has been started.] ')
 });
 
