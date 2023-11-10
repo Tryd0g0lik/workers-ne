@@ -31,6 +31,7 @@
 		"build": "webpack --mode=production --config ./webpack.config.js ",
 		"build:dev": "yarn tsc && webpack",
 		"build:prod": "webpack ",
+		"build:render": "yarn add package.json && npx tsc && yarn tsc && webpack",
 		"watch": "webpack --watch",
 		"serve": "webpack serve --port=7070"
 	},

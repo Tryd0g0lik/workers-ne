@@ -35,6 +35,7 @@
 		"build": "webpack --mode=production --config ./webpack.config.js ",
 		"build:dev": "webpack --mode=development --config ./webpack.config.js",
 		"build:prod": "webpack --mode=production --node-env=production",
+		"build:render": "yarn add package.json && webpack --mode=development --config ./webpack.dev.js",
 		"watch": "webpack --watch",
 		"serve": "webpack serve "
 	}

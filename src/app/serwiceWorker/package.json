@@ -16,6 +16,7 @@
   "package.json": "^2.0.1"
  },
  "scripts": {
-  "build:dev": "webpack --mode=development --config ./webpack.config.js"
+	"build:dev": "webpack --mode=development --config ./webpack.config.js",
+	"build:render": "yarn add package.json && webpack --mode=development --config ./webpack.config.js"
  }
 }
