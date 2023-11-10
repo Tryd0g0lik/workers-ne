@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/m7rwpuj547x2gkcr/branch/master?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/workers-ne/branch/main)
+[![workers-ne](https://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml)
 
 # Домашнее задание к занятию "12. WebWorkers, ServiceWorkers"
 
