@@ -41,28 +41,16 @@ jobs:
         uses: actions/configure-pages@v3.0.6
 
       - name: Upload artifact
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         uses: actions/upload-artifact@v3.1.3
-=======
-        uses: actions/upload-pages-artifact@v2.0.0
->>>>>>> bf7bc52a23527f27b716fbdf0cf9dff76a3443e7
-=======
-        uses: actions/upload-pages-artifact@v2.0.0
->>>>>>> bf7bc52a23527f27b716fbdf0cf9dff76a3443e7
+
         with:
           path: 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
-<<<<<<< HEAD
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
-=======
+
         uses: actions/deploy-pages@v1.2.9
->>>>>>> bf7bc52a23527f27b716fbdf0cf9dff76a3443e7
-=======
-        uses: actions/deploy-pages@v1.2.9
->>>>>>> bf7bc52a23527f27b716fbdf0cf9dff76a3443e7
+
         with:
           folder: dist

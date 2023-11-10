@@ -20,6 +20,7 @@
 		"dist"
 	],
 	"files": [
-		"./src/serve.ts"
+		"./src/serve.ts",
+		"./src/wsServer/index.ts"
 	]
 }

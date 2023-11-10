@@ -13,6 +13,7 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{ from: './src/db/news.json', to: 'db/', },
+				{ from: './src/wsServer/index.ts', to: 'wsServer/', }
 				// transform(content) {
 				//     const data = JSON.parse(content);
 				//     // modify the JSON data here if needed
