@@ -9,7 +9,7 @@ app.use(logger());
 const server = new http.createServer(app.callback);
 const wss = new WS.Server({ server });
 const db = require('./db/news.json');
-
+const PORT = process.env.PORT || 7070;
 
 console.log('D_B: ', db['gaz'][10]);
 
@@ -57,12 +57,12 @@ wss.on('connection', function (ws: any, req: any) {
 
 
 console.log('[serve: server]: ', Object.keys(server));
-server.listen(7070, (e: any) => console.log('[serve: Server has been started. Listen post: 7070] '));
+server.listen(PORT, (e: any) => console.log('[serve: Server has been started. Listen post: 7070] '));
 
 // const { Server } = require('mock-socket')
 
 
-// const mockServer = new Server('ws://localhost:8080');
+// const mockServer = new Server('ws://https://workers-ne.onrender.com/');
 
 
 // mockServer.emit('error', new Error('Server error'));

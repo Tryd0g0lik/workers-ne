@@ -230,7 +230,7 @@ Jest поставляется с двумя поставщиками покры�
 
 	// Options that will be passed to the testEnvironment
 	testEnvironmentOptions: {
-		url: "http://localhost/",
+		url: "https://workers-ne.onrender.com//",
 		port: 9000,
 
 	},

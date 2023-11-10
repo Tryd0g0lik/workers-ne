@@ -38,7 +38,7 @@ module.exports = {
 		compress: true,
 		historyApiFallback: true,
 		open: true,
-		port: 8080
+		// port: 8080
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

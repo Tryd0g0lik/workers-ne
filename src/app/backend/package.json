@@ -33,7 +33,7 @@
 		"build:prod": "webpack ",
 		"build:render": "yarn add package.json && npx tsc && yarn tsc && webpack",
 		"watch": "webpack --watch",
-		"serve": "webpack serve --port=7070"
+		"serve": "webpack serve"
 	},
 	"files": []
 }
