@@ -21,17 +21,11 @@ app.use(async function (ctx: any, next: any) {
 });
 
 wss.on('connection', function (ws: any, req: any) {
-	console.log('/*-----------------------------------------------*/')
-	console.log('[serve: ws]: ', Object.keys(ws))
-	console.log('[serve: red]: ', Object.keys(req))
-	console.log('[serve: WSS]: ', Object.keys(wss))
-	console.log('/*------------------FINISHED--------------------*/')
 
-	console.log('[serve: WebSocket connection]: ', Array.from(wss.clients).length)
+
 	// req['statusCode'] = 500
 	// Выяснить как отправлять данный.Почему сейчас отправляю не через "req" Cмю Стр. 1738
-	// и
-	https://github.com/websockets/ws#external-https-server
+	// и https://github.com/websockets/ws#external-https-server
 	console.log('[serve: WebSocket CODE]', ws.readyState);
 	ws.on('open', () => console.log('WebSocket oppened!'));
 	try {
