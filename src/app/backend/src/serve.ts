@@ -21,7 +21,7 @@ app.use(async function (ctx: any, next: any) {
 
 wsServer(wss);
 app.use((ctx: any) => {
-	ctx.body = `Request Body: ${JSON.stringify(ctx.request)} and  PORT: ${PORT}`;
+	ctx.body = `Request Body: ${JSON.stringify(ctx.request.method)} and  PORT: ${PORT}`;
 });
 
 
