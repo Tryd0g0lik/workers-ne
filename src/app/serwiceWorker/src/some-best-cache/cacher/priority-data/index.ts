@@ -17,10 +17,10 @@ const priorityData = async (datas: object): Promise<object | boolean> => {
 		const myOptions = {
 			status: 200,
 			type: 'basic',
-			url: 'http://localhost:8080'
+			url: 'https://tryd0g0lik.github.io/workers-ne/'
 		};
 		const response = new Response(jsonString, myOptions);
-		const request = new Request('http://localhost:8080/news', { mode: 'same-origin' });
+		const request = new Request('https://tryd0g0lik.github.io/workers-ne/news', { mode: 'same-origin' });
 		console.log('[priority-data]: cacher for a data; OPEN');
 		cache = await caches.open('cache-news');
 		if (!result) { await cache.add('./news') }

@@ -68,7 +68,7 @@
 		"serve-test": "webpack serve --port=9000 ",
 		"watch": "webpack --watch",
 		"serve:front": "yarn workspace my-webpack-frontend webpack serve",
-		"serve:back": "node ./dist/serve.js localhost7070"
+		"serve:back": "node ./dist/serve.js https://workers-ne.onrender.com"
 	},
 	"files": [
 		"dist",
