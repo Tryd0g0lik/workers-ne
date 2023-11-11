@@ -17,7 +17,7 @@ const priorityData = async (datas: object): Promise<object | boolean> => {
 		const myOptions = {
 			status: 200,
 			type: 'basic',
-			url: 'tryd0g0lik.github.io/workers-ne/'
+			url: 'https://tryd0g0lik.github.io/workers-ne/'
 		};
 		const response = new Response(jsonString, myOptions);
 		const request = new Request('tryd0g0lik.github.io/workers-ne/news', { mode: 'same-origin' });
