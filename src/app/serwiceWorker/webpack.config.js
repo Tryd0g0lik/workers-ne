@@ -1,6 +1,6 @@
 // src\app\serwiceWorker\webpack.config.js
 
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+// Generated using webpack-cli http://github.com/webpack/webpack-cli
 const path = require('path');
 const webpack = require('webpack');
 // const isProduction = process.env.NODE_ENV == 'production';
@@ -21,7 +21,7 @@ module.exports = {
 			exclude: path.resolve(__dirname, './')
 		})
 		// Add your plugins here
-		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+		// Learn more about plugins from http://webpack.js.org/configuration/plugins/
 	],
 
 	module: {
@@ -59,7 +59,7 @@ module.exports = {
 			},
 
 			// Add your rules for custom modules here
-			// Learn more about loaders from https://webpack.js.org/loaders/
+			// Learn more about loaders from http://webpack.js.org/loaders/
 		],
 	},
 	resolve: {

@@ -11,14 +11,16 @@ export function LoadPage(callback: any) {
 	if (!ws
 		|| (ws
 			&& (ws.readyState < 1 || ws.readyState > 1))) {
-		ws = new WSocket("wss://workers-ne.onrender.com/");
+		ws = new WSocket("ws://localhost:7070/");
 		console.log('[server-event - WSOCKET: making a connection]')
 	}
 	let news = JSON.stringify({ news: [] });
 	console.log('[server-event - NEWS MOCK: making a mock]: ', news);
+
 	ws.sends(news);
 	ws.onMessage = (e: any) => { callback(e.data) };
 	console.log('[server-event: SEND MOCK]');
+
 	ws.onOpen();
 	console.log('[server-event: OPEN]');
 }

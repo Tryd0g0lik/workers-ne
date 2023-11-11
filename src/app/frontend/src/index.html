@@ -78,13 +78,13 @@
 				// await timer(3000);
 
 					console.log('SERVICEwORKER: stepped the CHECK!')
-					// serviceWorker: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer
+				// serviceWorker: http://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer
 					navigator.serviceWorker
 						.register("./serwiceWorker.js") //, {scope: './sw-test/'} - папка на которую применяем serwice Worker
 						.then((registration) => {
 							console.log("Service worker зарегистрирован:", registration);
 
-							// .update(): https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
+							// .update(): http://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
 							// registration.update().then(async function () {
 							// 	const htmlPage = document.querySelector('html').innerHTML;
 							// 	registration.active.postMessage({ page: htmlPage });

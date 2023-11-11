@@ -1,4 +1,4 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+// Generated using webpack-cli http://github.com/webpack/webpack-cli
 process.traceDeprecation = true;
 const path = require('path');
 
@@ -24,7 +24,7 @@ module.exports = [
 
 		plugins: [
 			// Add your plugins here
-			// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+			// Learn more about plugins from http://webpack.js.org/configuration/plugins/
 		],
 		module: {
 			rules: [
@@ -39,7 +39,7 @@ module.exports = [
 				}
 
 				// Add your rules for custom modules here
-				// Learn more about loaders from https://webpack.js.org/loaders/
+				// Learn more about loaders from http://webpack.js.org/loaders/
 			]
 		},
 		resolve: {

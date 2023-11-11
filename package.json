@@ -2,7 +2,7 @@
 	"name": "child-webpack-backend",
 	"version": "1.0.0",
 	"main": "./src/index.js",
-	"repository": "https://github.com/Tryd0g0lik/workers-ne.git",
+	"repository": "http://github.com/Tryd0g0lik/workers-ne.git",
 	"author": "Tryd0g0lik",
 	"license": "MIT",
 	"private": true,
@@ -62,12 +62,13 @@
 		"build:dev": "yarn workspaces run build:dev",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"start:build:render": "yarn add -W package.json && yarn workspaces run build:render",
+
 		"unit": "jest --env=jsdom  --watch --colors --config=./unit.config.js",
 		"e2e": "jest --env=jest-environment-jsdom  --watch --colors --config=./puppeteer.config.js ",
 		"serve-test": "webpack serve --port=9000 ",
 		"watch": "webpack --watch",
 		"serve:front": "yarn workspace my-webpack-frontend webpack serve",
-		"serve:back": "node ./dist/serve.js https://workers-ne.onrender.com"
+		"serve:back": "node ./dist/serve.js localhost7070"
 	},
 	"files": [
 		"dist",

@@ -9,11 +9,11 @@ self.addEventListener('install', (ev: any) => {
 });
 
 self.addEventListener('activate', (ev: any) => {
-	console.log('Activated');
+	console.log('[some-best-cache]: ACTIVATE');
 });
 
 self.addEventListener('fetch', async (ev: any) => {
-	console.log(`[some-best-cache]: Static files BEGINNING; It is an Event Fetch; ev.REQUEST: ${ev.request}`);
+	console.log(`[some-best-cache]: Static files BEGINNING; It is an Event FETCH; ev.REQUEST: ${ev.request}`);
 
 	const url = new URL(ev.request.url);
 	if (CACHE_PRIORITY_URLS.includes(url.pathname)) {
