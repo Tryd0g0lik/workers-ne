@@ -32,7 +32,7 @@ server.listen(PORT, () => {
 // const { Server } = require('mock-socket')
 
 
-// const mockServer = new Server('ws://https://workers-ne.onrender.com/');
+// const mockServer = new Server('ws://http://workers-ne.onrender.com/');
 
 
 // mockServer.emit('error', new Error('Server error'));

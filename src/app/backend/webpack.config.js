@@ -1,4 +1,4 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+// Generated using webpack-cli http://github.com/webpack/webpack-cli
 
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -26,7 +26,7 @@ module.exports = {
 		// 	exclude: path.join(__dirname, 'src'),
 		// }),
 		// Add your plugins here
-		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
+		// Learn more about plugins from http://webpack.js.org/configuration/plugins/
 	],
 	module: {
 		rules: [
@@ -37,7 +37,7 @@ module.exports = {
 			// },
 
 			// Add your rules for custom modules here
-			// Learn more about loaders from https://webpack.js.org/loaders/
+			// Learn more about loaders from http://webpack.js.org/loaders/
 
 		],
 		exprContextCritical: false

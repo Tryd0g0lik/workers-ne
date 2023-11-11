@@ -1,7 +1,7 @@
 /**
  * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- * https://jestjs.io/docs/cli#--watchall
+ * http://jestjs.io/docs/configuration
+ * http://jestjs.io/docs/cli#--watchall
  */
 
 const { defaults } = require('jest-config');
@@ -230,7 +230,7 @@ Jest поставляется с двумя поставщиками покры�
 
 	// Options that will be passed to the testEnvironment
 	testEnvironmentOptions: {
-		url: "https://workers-ne.onrender.com/",
+		url: "http://workers-ne.onrender.com/",
 		port: 9000,
 
 	},
@@ -263,7 +263,7 @@ Jest поставляется с двумя поставщиками покры�
 	По умолчанию он ищет файлы .js, .jsx, .ts и .tsxx внутри папок __tests__, а также любые файлы
 	с суффиксом .test или .spec(например Component.test.js или Component.spec.js).Он также найдет файлы с именем test.js или
 	 spec.js.Смотрите также testMatch [array < string >], но обратите внимание, что вы не можете указать оба параметра.
-	 https://jestjs.io/docs/configuration#testregex-string--arraystring
+	 http://jestjs.io/docs/configuration#testregex-string--arraystring
 	 */
 	// testRegex: [
 	// 	/\/?(\w*.)+(test)\.[jt]s/,

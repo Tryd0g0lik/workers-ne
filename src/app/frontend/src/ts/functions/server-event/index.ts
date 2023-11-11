@@ -11,7 +11,7 @@ export function LoadPage(callback: any) {
 	if (!ws
 		|| (ws
 			&& (ws.readyState < 1 || ws.readyState > 1))) {
-		ws = new WSocket("wss://locaclhost:7070/");
+		ws = new WSocket("ws://localhost:7070/");
 		console.log('[server-event - WSOCKET: making a connection]')
 	}
 	let news = JSON.stringify({ news: [] });

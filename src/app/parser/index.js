@@ -17,7 +17,7 @@ async function scraper() {
 	});
 
 	page = await browser.newPage();
-	await page.goto(url = 'https://ria.ru/organization_Gazprom/');
+	await page.goto(url = 'http://ria.ru/organization_Gazprom/');
 	await page.waitForSelector('body'); // .list-item__content
 
 	const jsonNews = await page.evaluate(() => {

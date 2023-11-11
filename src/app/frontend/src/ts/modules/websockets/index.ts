@@ -1,3 +1,22 @@
+interface handlersType {
+	open: any[],
+	close: any[],
+	data: any[]
+}
+
+/**
+ * MDN: http://developer.mozilla.org/ru/docs/Web/API/WebSocket
+ *
+ * interface WebSocket
+var WebSocket: {
+		new (url: string | URL, protocols?: string | string[] | undefined): WebSocket;
+		prototype: WebSocket;
+		readonly CONNECTING: 0;
+		readonly OPEN: 1;
+		readonly CLOSING: 2;
+		readonly CLOSED: 3;
+}
+ */
 /**
  * Класс для работы с "WebSocket" протоколом.
  * Запускает прослушку событий:
@@ -11,8 +30,8 @@
  *  Она возвращает команду - закрыть соединение.
  */
 export class WSocket {
-	socket: any;
-	handlers: any;
+	socket: WebSocket;
+	handlers: handlersType;
 
 	constructor(url: string) {
 		this.socket = new WebSocket(url);
@@ -63,12 +82,12 @@ export class WSocket {
 				this.socket.send(data);
 				this.handlers.data.pop();
 				return
-			} else {
+			} else { // } else if (!this.readyState || this.readyState < 1) {
 				setTimeout(() => {
 					document.querySelector('link[href="style-serve-error.css"]')?.remove();
 
 				this.onOpen()
-				}, 10000)
+				}, 5000)
 			};
 		}
 		else if (this.readyState > 1) {

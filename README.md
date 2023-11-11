@@ -1,5 +1,5 @@
-[![workers-ne](https://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml)
-[![Build status](https://ci.appveyor.com/api/projects/status/m7rwpuj547x2gkcr/branch/master?svg=true)](https://ci.appveyor.com/project/Tryd0g0lik/workers-ne/branch/main)
+[![workers-ne](http://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml/badge.svg?branch=main)](http://github.com/Tryd0g0lik/workers-ne/actions/workflows/main.yml)
+[![Build status](http://ci.appveyor.com/api/projects/status/m7rwpuj547x2gkcr/branch/master?svg=true)](http://ci.appveyor.com/project/Tryd0g0lik/workers-ne/branch/main)
 
 # Домашнее задание к занятию "12. WebWorkers, ServiceWorkers"
 
@@ -10,7 +10,7 @@
 3. В README.md должен быть размещён бейджик сборки и ссылка на Github Pages
 4. В качестве результата присылайте проверяющему ссылки на ваши GitHub-проекты
 5. Авто-тесты писать не требуется
-6. Серверная часть должна быть выложена на [Render](https://render.com/). Посмотрите [инструкцию](https://github.com/netology-code/ahj-homeworks/tree/video/docs/render#readme) или [документацию](https://render.com/docs/deploy-node-express-app), как развертывать серверную часть на Render.
+6. Серверная часть должна быть выложена на [Render](http://render.com/). Посмотрите [инструкцию](http://github.com/netology-code/ahj-homeworks/tree/video/docs/render#readme) или [документацию](http://render.com/docs/deploy-node-express-app), как развертывать серверную часть на Render.
 
 
 ---
@@ -31,7 +31,7 @@
 
 ![](./pic/loading-2.png)
 
-Для эмуляции задержки можете самостоятельно написать middleware для koa, или посмотреть на существующие вроде [koa-slow](https://github.com/bahmutov/koa-slow)
+Для эмуляции задержки можете самостоятельно написать middleware для koa, или посмотреть на существующие вроде [koa-slow](http://github.com/bahmutov/koa-slow)
 
 Напоминаем, что для кэширования вы можете воспользоваться плагином Workbox.
 
@@ -45,7 +45,7 @@
 
 Периодически необходимо проверять контрольные суммы различных файлов, чтобы удостовериться, что при передаче с этими файлами не произошло ничего плохого. Конечно, для этого уже есть готовые инструменты, но всё равно пользователи пользуются какими-то онлайн-сервисами, загружая туда конфиденциальные файлы.
 
-Поэтому ваш руководитель решил, что можно это сделать и на корпоративном портале (чтобы ничего никуда не загружалось) через браузер с помощью специальной библиотеки [crypto-js](https://github.com/brix/crypto-js/), что вам и предстоит сделать.
+Поэтому ваш руководитель решил, что можно это сделать и на корпоративном портале (чтобы ничего никуда не загружалось) через браузер с помощью специальной библиотеки [crypto-js](http://github.com/brix/crypto-js/), что вам и предстоит сделать.
 
 #### Описание
 
@@ -86,7 +86,7 @@ const hash = crypto.MD5(wordArray).toString(crypto.enc.Hex);
 
 #### Описание
 
-Вам необходимо реализовать сервер, эмулирующий эту ситуацию (достаточно выставлять правильный код в koa, как мы это делали в лекции по HTTP, либо можете дополнительно ознакомиться с [обработкой ошибок в koa](https://github.com/koajs/koa/wiki/Error-Handling)).
+Вам необходимо реализовать сервер, эмулирующий эту ситуацию (достаточно выставлять правильный код в koa, как мы это делали в лекции по HTTP, либо можете дополнительно ознакомиться с [обработкой ошибок в koa](http://github.com/koajs/koa/wiki/Error-Handling)).
 
 Общий вид интерфейса:
 
