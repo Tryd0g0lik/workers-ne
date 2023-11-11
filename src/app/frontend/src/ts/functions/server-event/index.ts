@@ -16,9 +16,11 @@ export function LoadPage(callback: any) {
 	}
 	let news = JSON.stringify({ news: [] });
 	console.log('[server-event - NEWS MOCK: making a mock]: ', news);
+
 	ws.sends(news);
 	ws.onMessage = (e: any) => { callback(e.data) };
 	console.log('[server-event: SEND MOCK]');
+
 	ws.onOpen();
 	console.log('[server-event: OPEN]');
 }
